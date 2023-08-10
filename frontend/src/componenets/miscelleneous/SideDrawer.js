@@ -33,7 +33,7 @@ import { getSender } from "../../config/ChatLogics";
 import NotificationBadge from "react-notification-badge";
 import { Effect } from "react-notification-badge";
 
-const SideDrawer = ({ history }) => {
+const SideDrawer = ({}) => {
   const [search, setSearch] = useState();
   const [searchResult, setSearchResult] = useState();
   const [loading, setLoading] = useState();
@@ -98,7 +98,7 @@ const SideDrawer = ({ history }) => {
   };
 
   const accessChat = async (userId) => {
-    // console.log(userid);
+    console.log(userId);
     // const json = JSON.stringify({ userId: userid });
     try {
       setLoadingChat(true);
@@ -235,11 +235,11 @@ const SideDrawer = ({ history }) => {
             {loading ? (
               <ChatLoading />
             ) : (
-              searchResult?.map((user) => (
+              searchResult?.map((u) => (
                 <UserListItem
-                  key={user._id}
-                  user={user}
-                  handleFunction={() => accessChat(user._id)}
+                  key={u._id}
+                  user={u}
+                  handleFunction={() => accessChat(u._id)}
                 />
               ))
             )}

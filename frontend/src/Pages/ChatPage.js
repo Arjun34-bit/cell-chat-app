@@ -12,7 +12,9 @@ const ChatPage = () => {
   // window.location.reload(false);
   return (
     <div style={{ width: "100%" }}>
-      {user && <SideDrawer />}
+      {user && (
+        <SideDrawer fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+      )}
       <Box
         display="flex"
         justifyContent={"space-between"}
