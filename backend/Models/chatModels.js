@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { useParams } = require("react-router-dom");
+//const { useParams } = require("react-router-dom");
 
 const chatModel = mongoose.Schema(
   {
