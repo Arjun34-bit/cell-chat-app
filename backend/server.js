@@ -8,20 +8,35 @@ const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const verificationRoutes = require("./routes/verificationRoutes");
 const { notFound, errorHandler } = require("./Middleware/errorMiddleware.js");
+const path = require("path");
 
 dotenv.config(); //configuring the dotenv package.
 connectDB();
 const app = express(); //creating instance for express.
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("API is running successfully");
-});
-
 app.use("/api/users", userRoutes);
 app.use("/api/chats", chatRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/otp", verificationRoutes);
+
+//--------------Deployment---------
+
+const __dirname1 = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/frontend/build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running successfully");
+  });
+}
+
+//--------------Deployment---------
 
 app.use(notFound);
 app.use(errorHandler);
