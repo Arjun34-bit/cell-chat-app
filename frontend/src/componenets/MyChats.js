@@ -41,7 +41,7 @@ const MyChats = ({ fetchAgain, online }) => {
     } catch (error) {
       toast({
         title: "Error Occured",
-        description: error.message,
+        description: error.response.data.message,
         status: "error",
         duration: 3000,
         position: "bottom-left",
@@ -54,7 +54,7 @@ const MyChats = ({ fetchAgain, online }) => {
   useEffect(() => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     fetchChats();
-  }, [fetchAgain]);
+  }, [!fetchAgain]);
 
   return (
     <Box
