@@ -84,6 +84,7 @@ const verifyOtp = asyncHandler(async (req, res) => {
     res.status(400);
     throw Error("Invalid OTP");
   }
+  otp = "";
 });
 
 // const sendOtp = asyncHandler(async (req, res) => {
