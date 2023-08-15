@@ -59,6 +59,7 @@ const sendOtp = asyncHandler(async (req, res) => {
       console.log("Email Sent " + info.response);
     }
   });
+  otpval = "";
 });
 
 const verifyOtp = asyncHandler(async (req, res) => {
