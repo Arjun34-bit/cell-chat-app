@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 const generateToken = require("../config/generateToken");
 
-const { otp, setOtp } = useState("");
+const [otp, setOtp] = useState("");
 let user = {};
 
 const sendOtp = asyncHandler(async (req, res) => {
@@ -33,7 +33,7 @@ const sendOtp = asyncHandler(async (req, res) => {
     otp += digits[Math.floor(Math.random() * 10)];
   }
 
-  const { otpval, setOtpval } = useState("");
+  const [otpval, setOtpval] = useState("");
   otpval = otp.toString();
 
   const transporter = nodemailer.createTransport({
