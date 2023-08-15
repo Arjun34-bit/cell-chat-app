@@ -60,7 +60,7 @@ const sendOtp = asyncHandler(async (req, res) => {
       console.log("Email Sent " + info.response);
     }
   });
-  setOtpval("");
+  setOtpval(null);
 });
 
 const verifyOtp = asyncHandler(async (req, res) => {
@@ -85,7 +85,7 @@ const verifyOtp = asyncHandler(async (req, res) => {
     res.status(400);
     throw Error("Invalid OTP");
   }
-  setOtp("");
+  setOtp(null);
 });
 
 // const sendOtp = asyncHandler(async (req, res) => {
