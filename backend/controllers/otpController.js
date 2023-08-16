@@ -6,11 +6,10 @@ const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 const generateToken = require("../config/generateToken");
 
-let otp = "";
+let otp;
 let user = {};
 
 const sendOtp = asyncHandler(async (req, res) => {
-  otp = "";
   const { email } = req.body;
 
   if (!email) {
@@ -29,13 +28,15 @@ const sendOtp = asyncHandler(async (req, res) => {
 
   //otp generation
 
+  otp = "";
+
   var digits = "0123456789";
   for (let i = 0; i < 4; i++) {
     otp = digits[Math.floor(Math.random() * 10)];
   }
 
   let otpval = "";
-  otpval = otp.toString();
+  otpval += otp.toString();
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -49,7 +50,7 @@ const sendOtp = asyncHandler(async (req, res) => {
     from: "cellchat86@gmail.com",
     to: email,
     subject: "OTP For Login",
-    html: `<h1>Welcome! to Cell-Chat</h1> <h4>Your four digit One Time Password Number : <b>${otp}</b></h4>`,
+    html: `<h1>Welcome! to Cell-Chat</h1> <h4>Your four digit One Time Password Number : <b>${otpval}</b></h4>`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
@@ -81,6 +82,7 @@ const verifyOtp = asyncHandler(async (req, res) => {
       pic: user.pic,
       token: generateToken(user._id),
     });
+    otp = "";
   } else {
     res.status(400);
     throw Error("Invalid OTP");
