@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 const generateToken = require("../config/generateToken");
 
-let otp;
+let otp = "";
 let user = {};
 
 const sendOtp = asyncHandler(async (req, res) => {
