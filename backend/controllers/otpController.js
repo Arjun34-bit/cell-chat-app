@@ -10,6 +10,7 @@ let otp = "";
 let user = {};
 
 const sendOtp = asyncHandler(async (req, res) => {
+  otp = "";
   const { email } = req.body;
 
   if (!email) {
