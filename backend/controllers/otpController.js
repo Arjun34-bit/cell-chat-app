@@ -33,6 +33,8 @@ const sendOtp = asyncHandler(async (req, res) => {
     otp += digits[Math.floor(Math.random() * 10)];
   }
 
+  console.log(otp);
+
   let otpval = "";
   otpval = otp.toString();
 
