@@ -50,7 +50,7 @@ const sendOtp = asyncHandler(async (req, res) => {
     from: "cellchat86@gmail.com",
     to: email,
     subject: "OTP For Login",
-    html: `<h1>Welcome! to Cell-Chat</h1> <h4>Your four digit One Time Password Number : <b>${otpval}</b></h4>`,
+    html: `<h1>Welcome! to Cell-Chat</h1> <h4>Your four digit One Time Password Number : <b>${otp}</b></h4>`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
