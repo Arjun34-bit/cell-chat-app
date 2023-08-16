@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 const generateToken = require("../config/generateToken");
 
-const [otp, setOtp] = useState("");
+let otp = "";
 let user = {};
 
 const sendOtp = asyncHandler(async (req, res) => {
@@ -33,7 +33,7 @@ const sendOtp = asyncHandler(async (req, res) => {
     otp += digits[Math.floor(Math.random() * 10)];
   }
 
-  const [otpval, setOtpval] = useState("");
+  let otpval = "";
   otpval = otp.toString();
 
   const transporter = nodemailer.createTransport({
@@ -60,7 +60,6 @@ const sendOtp = asyncHandler(async (req, res) => {
       console.log("Email Sent " + info.response);
     }
   });
-  setOtpval(null);
 });
 
 const verifyOtp = asyncHandler(async (req, res) => {
@@ -85,7 +84,6 @@ const verifyOtp = asyncHandler(async (req, res) => {
     res.status(400);
     throw Error("Invalid OTP");
   }
-  setOtp(null);
 });
 
 // const sendOtp = asyncHandler(async (req, res) => {
