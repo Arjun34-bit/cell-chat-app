@@ -31,7 +31,7 @@ const sendOtp = asyncHandler(async (req, res) => {
 
   var digits = "0123456789";
   for (let i = 0; i < 4; i++) {
-    otp += digits[Math.floor(Math.random() * 10)];
+    otp = digits[Math.floor(Math.random() * 10)];
   }
 
   let otpval = "";
