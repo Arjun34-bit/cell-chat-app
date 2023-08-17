@@ -163,7 +163,7 @@ const SideDrawer = ({}) => {
           <Text
             fontSize={"2xl"}
             fontFamily={"Work Sans"}
-            display={{ base: "none" }}
+            display={{ base: "none", md: "flex" }}
           >
             Cell-Chat
             <sub className="text beta-text">(ßeta)</sub>
