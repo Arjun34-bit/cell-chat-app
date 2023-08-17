@@ -150,7 +150,7 @@ const SideDrawer = ({}) => {
         >
           <Button variant={"ghost"} onClick={onOpen}>
             <i class="fas fa-search"></i>
-            <Text d={{ base: "none", md: "flex" }} px="4">
+            <Text display={{ base: "none", md: "flex" }} px="4">
               {" "}
               Search User
             </Text>
