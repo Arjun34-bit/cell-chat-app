@@ -166,7 +166,7 @@ const SideDrawer = ({}) => {
             display={{ base: "none", md: "flex" }}
           >
             Cell-Chat
-            <sub className="text beta-text">(ß)</sub>
+            <sub className="text beta-text">(ßeta)</sub>
           </Text>
         </Box>
 
