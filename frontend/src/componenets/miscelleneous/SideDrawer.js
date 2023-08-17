@@ -157,11 +157,7 @@ const SideDrawer = ({}) => {
           </Button>
         </Tooltip>
         <Box display={"flex"}>
-          <Text
-            fontSize={"2xl"}
-            fontFamily={"Work Sans"}
-            display={{ base: "none", md: "flex" }}
-          >
+          <Text fontSize={"2xl"} fontFamily={"Work Sans"}>
             <Tooltip label={user.name} textTransform={"uppercase"}>
               <ChatIcon marginRight={"1"}></ChatIcon>
             </Tooltip>
