@@ -144,7 +144,7 @@ const MyChats = ({ fetchAgain, online }) => {
                     ? getSender(loggedUser, cha.users)
                     : cha.chatName}
                 </Text>
-                {chat.latestMessage && (
+                {cha.latestMessage && (
                   <Text fontSize="xs">
                     <b>{cha.latestMessage.sender.name} : </b>
                     {cha.latestMessage.content.length > 50
