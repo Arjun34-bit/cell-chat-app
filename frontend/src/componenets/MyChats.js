@@ -71,7 +71,7 @@ const MyChats = ({ fetchAgain, online }) => {
         color={"white"}
         pb={3}
         px={3}
-        fontSize={{ base: "28px", md: "30px" }}
+        fontSize={{ base: "15px", md: "30px" }}
         fontFamily={"Work Sans"}
         d="flex"
         w="100%"
