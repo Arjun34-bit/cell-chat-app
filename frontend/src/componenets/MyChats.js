@@ -41,7 +41,7 @@ const MyChats = ({ fetchAgain, online }) => {
     } catch (error) {
       toast({
         title: "Error Occured",
-        description: error.response.data.message,
+        description: error.message,
         status: "error",
         duration: 3000,
         position: "bottom-left",

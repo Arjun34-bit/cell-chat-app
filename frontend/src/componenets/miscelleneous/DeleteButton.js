@@ -64,7 +64,7 @@ const DeleteButton = ({ senderName, id, fetchChats }) => {
   };
 
   useEffect(() => {
-    fetchChats();
+    //fetchChats();
   }, [removeChat]);
 
   return (
