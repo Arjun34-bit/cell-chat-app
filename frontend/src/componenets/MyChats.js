@@ -113,7 +113,7 @@ const MyChats = ({ fetchAgain, online }) => {
                 borderRadius={"lg"}
                 key={cha._id}
               >
-                <Text fontSize={{ base: "18px", md: "28px" }}>
+                <Text fontSize={{ base: "18px", md: "24px" }}>
                   {!cha.isGroupChat ? (
                     <DeleteButton
                       loggedUser={loggedUser}
