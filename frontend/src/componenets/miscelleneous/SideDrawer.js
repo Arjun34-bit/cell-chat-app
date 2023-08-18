@@ -157,17 +157,19 @@ const SideDrawer = ({}) => {
           </Button>
         </Tooltip>
         <Box display={"flex"}>
-          <Tooltip label={user.name} textTransform={"uppercase"}>
-            <ChatIcon marginRight={"1"}></ChatIcon>
-          </Tooltip>
+          <Box>
+            <Tooltip label={user.name} textTransform={"uppercase"}>
+              <ChatIcon marginRight={"1"}></ChatIcon>
+            </Tooltip>
+          </Box>
           <Text
             fontSize={"2xl"}
             fontFamily={"Work Sans"}
             display={{ base: "none", md: "flex" }}
           >
             Cell-Chat
-            <sub className="text beta-text">(ßeta)</sub>
           </Text>
+          <sub className="text beta-text">(ßeta)</sub>
         </Box>
 
         <div>
