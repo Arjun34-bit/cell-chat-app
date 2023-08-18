@@ -49,7 +49,6 @@ const MyChats = ({ fetchAgain, online }) => {
       });
     }
   };
-  // console.log(selectedChat);
 
   useEffect(() => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
