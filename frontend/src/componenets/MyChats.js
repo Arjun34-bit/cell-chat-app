@@ -146,10 +146,10 @@ const MyChats = ({ fetchAgain, online }) => {
                 </Text>
                 {chat.latestMessage && (
                   <Text fontSize="xs">
-                    <b>{chat.latestMessage.sender.name} : </b>
-                    {chat.latestMessage.content.length > 50
-                      ? chat.latestMessage.content.substring(0, 51) + "..."
-                      : chat.latestMessage.content}
+                    <b>{cha.latestMessage.sender.name} : </b>
+                    {cha.latestMessage.content.length > 50
+                      ? cha.latestMessage.content.substring(0, 51) + "..."
+                      : cha.latestMessage.content}
                   </Text>
                 )}
                 {!cha.isGroupChat ? (
