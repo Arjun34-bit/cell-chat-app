@@ -142,7 +142,7 @@ const MyChats = ({ fetchAgain, online }) => {
                 key={cha._id}
               >
                 <Text fontSize={{ base: "18px", md: "24px" }}>
-                  {!isChat.GroupChatModal ? (
+                  {!cha.isGroupChat ? (
                     <DeleteButton
                       loggedUser={loggedUser}
                       senderName={getSender(loggedUser, cha.users)}
