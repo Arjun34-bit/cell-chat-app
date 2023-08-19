@@ -30,7 +30,6 @@ const MyChats = ({ fetchAgain, online }) => {
   const [menuOperation, setMenuOperation] = useState([]);
   const [socketConnected, setSocketConnected] = useState(false);
   const [longPressActive, setLongPressActive] = useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
   const { user, selectedChat, setSelectedChat, chat, setChat } = ChatState();
 
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
@@ -68,10 +67,10 @@ const MyChats = ({ fetchAgain, online }) => {
 
   let longPressTimeout;
 
-  const handleTouchStart = (event) => {
+  const handleTouchStart = () => {
     longPressTimeout = setTimeout(() => {
       alert("hello");
-      //setAnchorEl(event.currentTarget);
+      onOpen();
     }, 500);
   };
 
@@ -134,8 +133,10 @@ const MyChats = ({ fetchAgain, online }) => {
           <Stack overflowY="scroll">
             {chat.map((cha) => (
               <Box
-                id="long-press"
-                onClick={() => setSelectedChat(cha)}
+                onClick={() => {
+                  setSelectedChat(cha);
+                  setMenuOperation(cha);
+                }}
                 cursor={"pointer"}
                 bg={selectedChat === cha ? "#38B2AC" : "#E8E8E8"}
                 color={selectedChat === cha ? "white" : "black"}
@@ -152,14 +153,22 @@ const MyChats = ({ fetchAgain, online }) => {
                       id={selectedChat}
                       fetchChats={fetchChats}
                       fetchAgain={fetchAgain}
+                      isOpen={isOpen}
+                      onClose={onClose}
                     />
                   ) : (
                     ""
                   )}
-                  <Menu>
-                    <MenuItem>Profile</MenuItem>
-                    <MenuItem>Delete Chat</MenuItem>
-                  </Menu>
+                  <DeleteButton
+                    onClick={() => setMenuOperation(cha)}
+                    loggedUser={loggedUser}
+                    senderName={getSender(loggedUser, cha.users)}
+                    id={menuOperation}
+                    fetchChats={fetchChats}
+                    fetchAgain={fetchAgain}
+                    isOpen={isOpen}
+                    onClose={onClose}
+                  />
 
                   <Avatar
                     mr={2}
