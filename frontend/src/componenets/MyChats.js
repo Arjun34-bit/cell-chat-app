@@ -62,7 +62,7 @@ const MyChats = ({ fetchAgain, online }) => {
   const handleTouchStart = () => {
     longPressTimeout = setTimeout(() => {
       alert("Hello");
-    }, 1000);
+    }, 500);
   };
 
   const handleTouchEnd = () => {
