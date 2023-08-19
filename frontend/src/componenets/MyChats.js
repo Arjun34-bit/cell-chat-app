@@ -4,6 +4,8 @@ import {
   Avatar,
   Box,
   Button,
+  MenuItem,
+  MenuList,
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -153,6 +155,15 @@ const MyChats = ({ fetchAgain, online }) => {
                   ) : (
                     ""
                   )}
+                  <Menu onOpen={onOpen} onClose={onClose}>
+                    <MenuList>
+                      <MenuItem>Download</MenuItem>
+                      <MenuItem>Create a Copy</MenuItem>
+                      <MenuItem>Mark as Draft</MenuItem>
+                      <MenuItem>Delete</MenuItem>
+                      <MenuItem>Attend a Workshop</MenuItem>
+                    </MenuList>
+                  </Menu>
 
                   <Avatar
                     mr={2}
