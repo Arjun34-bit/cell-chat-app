@@ -80,9 +80,9 @@ const DeleteButton = ({ senderName, id, fetchChats }) => {
         variant="outline"
       /> */}
       <MenuList color={"black"} fontSize={"20px"}>
-        <ProfileModal user={getSenderFull(user, selectedChat.user)}>
-          <MenuItem>Profile</MenuItem>
-        </ProfileModal>
+        {/* <ProfileModal> */}
+        <MenuItem>Profile</MenuItem>
+        {/* </ProfileModal> */}
         <MenuItem onClick={onOpen}>Profile</MenuItem>
         <MenuDivider />
         <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
