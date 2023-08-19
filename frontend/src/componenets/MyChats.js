@@ -157,8 +157,8 @@ const MyChats = ({ fetchAgain, online }) => {
                   )}
                   <Menu onOpen={onOpen} onClose={onClose}>
                     <MenuList>
-                      <MenuItem>Download</MenuItem>
-                      <MenuItem>Create a Copy</MenuItem>
+                      <MenuItem>Profile</MenuItem>
+                      <MenuItem>Delete Chat</MenuItem>
                       <MenuItem>Mark as Draft</MenuItem>
                       <MenuItem>Delete</MenuItem>
                       <MenuItem>Attend a Workshop</MenuItem>
