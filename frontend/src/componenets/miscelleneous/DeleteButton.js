@@ -71,7 +71,7 @@ const DeleteButton = ({ senderName, id, fetchChats, openS, OnClose }) => {
 
   return (
     <Menu color="black" isOpen={openS} onClose={onClose}>
-      <MenuButton>Open</MenuButton>
+      <MenuButton></MenuButton>
       <MenuList color={"black"} fontSize={"20px"}>
         {/* <ProfileModal> */}
         <MenuItem>Profile</MenuItem>
