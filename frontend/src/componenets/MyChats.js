@@ -63,13 +63,14 @@ const MyChats = ({ fetchAgain, online }) => {
 
   function startLongPress() {
     longPressTimeout = setTimeout(function () {
-      <DeleteButton
-        loggedUser={loggedUser}
-        senderName={getSender(loggedUser, chat.users)}
-        id={selectedChat}
-        fetchChats={fetchChats}
-        fetchAgain={fetchAgain}
-      />;
+      // <DeleteButton
+      //   loggedUser={loggedUser}
+      //   senderName={getSender(loggedUser, chat.users)}
+      //   id={selectedChat}
+      //   fetchChats={fetchChats}
+      //   fetchAgain={fetchAgain}
+      alert("hello");
+      // />
     }, 700);
   }
 
