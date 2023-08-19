@@ -168,7 +168,7 @@ const MyChats = ({ fetchAgain, online }) => {
                     : cha.chatName}
                 </Text>
                 {cha.latestMessage && (
-                  <Text fontSize="xs">
+                  <Text fontSize="xs" marginRight={"5px"}>
                     <b>{cha.latestMessage.sender.name} : </b>
                     {cha.latestMessage.content.length > 50
                       ? cha.latestMessage.content.substring(0, 51) + "..."
