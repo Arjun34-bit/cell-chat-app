@@ -17,13 +17,14 @@ import {
   MenuDivider,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { getSender } from "../../config/ChatLogics";
+import { getSender, getSenderFull } from "../../config/ChatLogics";
 import { ChatState } from "../../Context/ChatProvider";
 import { useEffect } from "react";
 import axios from "axios";
+import ProfileModal from "./ProfileModal";
 
 const DeleteButton = ({ senderName, id, fetchChats }) => {
-  const { user, setSelectedChat } = ChatState();
+  const { user, setSelectedChat, selectedChat } = ChatState();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
 
@@ -79,6 +80,9 @@ const DeleteButton = ({ senderName, id, fetchChats }) => {
         variant="outline"
       />
       <MenuList color={"black"} fontSize={"20px"}>
+        <ProfileModal user={getSenderFull(user, selectedChat.users)}>
+          <MenuItem>Profile</MenuItem>
+        </ProfileModal>
         <MenuItem onClick={onOpen}>Profile</MenuItem>
         <MenuDivider />
         <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
