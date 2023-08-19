@@ -26,6 +26,7 @@ const MyChats = ({ fetchAgain, online }) => {
   // window.location.reload(false);
   const [loggedUser, setLoggedUser] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState([]);
+  const [menuOperation, setMenuOperation] = useState([]);
   const [socketConnected, setSocketConnected] = useState(false);
   const [longPressActive, setLongPressActive] = useState(false);
   const { user, selectedChat, setSelectedChat, chat, setChat } = ChatState();
@@ -159,12 +160,19 @@ const MyChats = ({ fetchAgain, online }) => {
                         color="white"
                         borderRadius="md"
                         _hover={{ cursor: "pointer", bg: "blue.600" }}
+                        onClick={() => setMenuOperation(cha)}
                       >
                         Long Press Me
                       </Box>
                     </PopoverTrigger>
                     <PopoverContent>
-                      <ListsBox />
+                      <ListsBox
+                        loggedUser={loggedUser}
+                        senderName={getSender(loggedUser, cha.users)}
+                        id={menuOperation}
+                        fetchChats={fetchChats}
+                        fetchAgain={fetchAgain}
+                      />
                     </PopoverContent>
                   </Popover>
                   <Avatar
