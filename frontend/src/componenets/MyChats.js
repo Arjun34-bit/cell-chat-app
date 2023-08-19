@@ -23,6 +23,7 @@ const MyChats = ({ fetchAgain, online }) => {
   const [loggedUser, setLoggedUser] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState([]);
   const [socketConnected, setSocketConnected] = useState(false);
+  const [longPressActive, setLongPressActive] = useState(false);
   const { user, selectedChat, setSelectedChat, chat, setChat } = ChatState();
   const { isOpen, onToggle } = useDisclosure();
 
@@ -60,11 +61,14 @@ const MyChats = ({ fetchAgain, online }) => {
   let longPressTimeout;
 
   const handleTouchStart = () => {
-    longPressTimeout = setTimeout(() => {}, 500);
+    longPressTimeout = setTimeout(() => {
+      setLongPressActive(true);
+    }, 500);
   };
 
   const handleTouchEnd = () => {
     clearTimeout(longPressTimeout);
+    setLongPressActive(false);
   };
 
   //Long Press Functions ---ends
@@ -132,7 +136,7 @@ const MyChats = ({ fetchAgain, online }) => {
                 key={cha._id}
               >
                 <Text fontSize={{ base: "18px", md: "24px" }}>
-                  {!cha.isGroupChat ? (
+                  {longPressActive ? (
                     <DeleteButton
                       loggedUser={loggedUser}
                       senderName={getSender(loggedUser, cha.users)}
