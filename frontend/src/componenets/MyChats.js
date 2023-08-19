@@ -61,7 +61,13 @@ const MyChats = ({ fetchAgain, online }) => {
 
   const handleTouchStart = () => {
     longPressTimeout = setTimeout(() => {
-      alert("Hello");
+      <DeleteButton
+        loggedUser={loggedUser}
+        senderName={getSender(loggedUser, chat.users)}
+        id={selectedChat}
+        fetchChats={fetchChats}
+        fetchAgain={fetchAgain}
+      />;
     }, 500);
   };
 
