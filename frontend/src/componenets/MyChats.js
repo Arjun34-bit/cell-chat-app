@@ -153,29 +153,7 @@ const MyChats = ({ fetchAgain, online }) => {
                   ) : (
                     ""
                   )}
-                  <Popover isOpen={onOpen} onClose={onClose}>
-                    <PopoverTrigger>
-                      <Box
-                        p="4"
-                        bg="blue.500"
-                        color="white"
-                        borderRadius="md"
-                        _hover={{ cursor: "pointer", bg: "blue.600" }}
-                        onClick={() => setMenuOperation(cha)}
-                      >
-                        Long Press Me
-                      </Box>
-                    </PopoverTrigger>
-                    <PopoverContent>
-                      <ListsBox
-                        loggedUser={loggedUser}
-                        senderName={getSender(loggedUser, cha.users)}
-                        id={menuOperation}
-                        fetchChats={fetchChats}
-                        fetchAgain={fetchAgain}
-                      />
-                    </PopoverContent>
-                  </Popover>
+
                   <Avatar
                     mr={2}
                     size="sm"
