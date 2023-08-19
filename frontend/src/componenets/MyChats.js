@@ -28,6 +28,12 @@ const MyChats = ({ fetchAgain, online }) => {
 
   const toast = useToast();
 
+  var longPressButton = document.getElementById("long-press");
+  var longPressTimeout;
+
+  longPressButton.addEventListener("touchstart", startLongPress);
+  longPressButton.addEventListener("touchend", cancelLongPress);
+
   const fetchChats = async () => {
     try {
       const config = {
@@ -54,6 +60,22 @@ const MyChats = ({ fetchAgain, online }) => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     fetchChats();
   }, [fetchAgain]);
+
+  function startLongPress() {
+    longPressTimeout = setTimeout(function () {
+      <DeleteButton
+        loggedUser={loggedUser}
+        senderName={getSender(loggedUser, chat.users)}
+        id={selectedChat}
+        fetchChats={fetchChats}
+        fetchAgain={fetchAgain}
+      />;
+    }, 700);
+  }
+
+  function cancelLongPress() {
+    clearTimeout(longPressTimeout);
+  }
 
   return (
     <Box
@@ -104,6 +126,7 @@ const MyChats = ({ fetchAgain, online }) => {
           <Stack overflowY="scroll">
             {chat.map((cha) => (
               <Box
+                id="long-press"
                 onClick={() => setSelectedChat(cha)}
                 cursor={"pointer"}
                 bg={selectedChat === cha ? "#38B2AC" : "#E8E8E8"}
