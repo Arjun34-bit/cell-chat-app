@@ -68,7 +68,7 @@ const MyChats = ({ fetchAgain, online }) => {
 
   let longPressTimeout;
 
-  const handleTouchStart = () => {
+  const handleTouchStart = (event) => {
     longPressTimeout = setTimeout(() => {
       setAnchorEl(event.currentTarget);
     }, 500);
