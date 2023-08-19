@@ -4,6 +4,9 @@ import {
   Avatar,
   Box,
   Button,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
   ScaleFade,
   Slide,
   Stack,
@@ -17,6 +20,7 @@ import ChatLoading from "./ChatLoading";
 import { getImage, getSender, getreceiverId } from "../config/ChatLogics";
 import GroupChatModal from "./miscelleneous/GroupChatModal";
 import DeleteButton from "./miscelleneous/DeleteButton";
+import ListsBox from "./miscelleneous/ListsBox";
 
 const MyChats = ({ fetchAgain, online }) => {
   // window.location.reload(false);
@@ -62,13 +66,13 @@ const MyChats = ({ fetchAgain, online }) => {
 
   const handleTouchStart = () => {
     longPressTimeout = setTimeout(() => {
-      setLongPressActive(true);
+      onOpen();
     }, 500);
   };
 
   const handleTouchEnd = () => {
     clearTimeout(longPressTimeout);
-    setLongPressActive(false);
+    onClose();
   };
 
   //Long Press Functions ---ends
@@ -147,6 +151,22 @@ const MyChats = ({ fetchAgain, online }) => {
                   ) : (
                     ""
                   )}
+                  <Popover isOpen={isOpen} onClose={onClose}>
+                    <PopoverTrigger>
+                      <Box
+                        p="4"
+                        bg="blue.500"
+                        color="white"
+                        borderRadius="md"
+                        _hover={{ cursor: "pointer", bg: "blue.600" }}
+                      >
+                        Long Press Me
+                      </Box>
+                    </PopoverTrigger>
+                    <PopoverContent>
+                      <ListsBox />
+                    </PopoverContent>
+                  </Popover>
                   <Avatar
                     mr={2}
                     size="sm"
