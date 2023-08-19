@@ -22,7 +22,7 @@ import ChatLoading from "./ChatLoading";
 import { getImage, getSender, getreceiverId } from "../config/ChatLogics";
 import GroupChatModal from "./miscelleneous/GroupChatModal";
 import DeleteButton from "./miscelleneous/DeleteButton";
-
+import MenuList from "./MenuList";
 const MyChats = ({ fetchAgain, online }) => {
   // window.location.reload(false);
   const [loggedUser, setLoggedUser] = useState([]);
@@ -30,6 +30,7 @@ const MyChats = ({ fetchAgain, online }) => {
   const [menuOperation, setMenuOperation] = useState([]);
   const [socketConnected, setSocketConnected] = useState(false);
   const [longPressActive, setLongPressActive] = useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const { user, selectedChat, setSelectedChat, chat, setChat } = ChatState();
 
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
@@ -69,13 +70,13 @@ const MyChats = ({ fetchAgain, online }) => {
 
   const handleTouchStart = () => {
     longPressTimeout = setTimeout(() => {
-      onOpen();
+      setAnchorEl(event.currentTarget);
     }, 500);
   };
 
   const handleTouchEnd = () => {
     clearTimeout(longPressTimeout);
-    onClose();
+    setAnchorEl(null);
   };
 
   //Long Press Functions ---ends
@@ -154,6 +155,10 @@ const MyChats = ({ fetchAgain, online }) => {
                   ) : (
                     ""
                   )}
+                  <Menu>
+                    <MenuItem>Profile</MenuItem>
+                    <MenuItem>Delete Chat</MenuItem>
+                  </Menu>
 
                   <Avatar
                     mr={2}
