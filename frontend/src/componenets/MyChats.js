@@ -30,7 +30,8 @@ const MyChats = ({ fetchAgain, online }) => {
   const [socketConnected, setSocketConnected] = useState(false);
   const [longPressActive, setLongPressActive] = useState(false);
   const { user, selectedChat, setSelectedChat, chat, setChat } = ChatState();
-  const { isOpen, onToggle } = useDisclosure();
+
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
 
   const toast = useToast();
 
