@@ -152,7 +152,7 @@ const MyChats = ({ fetchAgain, online }) => {
                       id={selectedChat}
                       fetchChats={fetchChats}
                       fetchAgain={fetchAgain}
-                      isOpen={isOpen}
+                      openS={isOpen}
                       onClose={onClose}
                     />
                   ) : (
