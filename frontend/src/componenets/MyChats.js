@@ -153,7 +153,7 @@ const MyChats = ({ fetchAgain, online }) => {
                   ) : (
                     ""
                   )}
-                  <Popover isOpen={isOpen} onClose={onClose}>
+                  <Popover isOpen={onOpen} onClose={onClose}>
                     <PopoverTrigger>
                       <Box
                         p="4"
