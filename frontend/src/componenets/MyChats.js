@@ -76,7 +76,6 @@ const MyChats = ({ fetchAgain, online }) => {
 
   const handleTouchEnd = () => {
     clearTimeout(longPressTimeout);
-    // setAnchorEl(null);
   };
 
   //Long Press Functions ---ends
