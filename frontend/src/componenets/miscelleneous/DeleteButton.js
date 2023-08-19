@@ -14,6 +14,7 @@ import {
   useDisclosure,
   Button,
   useToast,
+  MenuDivider,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { getSender } from "../../config/ChatLogics";
@@ -79,6 +80,7 @@ const DeleteButton = ({ senderName, id, fetchChats }) => {
       /> */}
       <MenuList color={"black"} fontSize={"20px"}>
         <MenuItem onClick={onOpen}>Profile</MenuItem>
+        <MenuDivider />
         <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
           {/* {chat.map((c) => ( */}
           Remove {senderName}
