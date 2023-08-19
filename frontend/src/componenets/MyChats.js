@@ -154,15 +154,6 @@ const MyChats = ({ fetchAgain, online }) => {
                   ) : (
                     ""
                   )}
-                  <Menu onOpen={isOpen} onClose={onClose}>
-                    <MenuList>
-                      <MenuItem>Profile</MenuItem>
-                      <MenuItem>Delete Chat</MenuItem>
-                      <MenuItem>Mark as Draft</MenuItem>
-                      <MenuItem>Delete</MenuItem>
-                      <MenuItem>Attend a Workshop</MenuItem>
-                    </MenuList>
-                  </Menu>
 
                   <Avatar
                     mr={2}
