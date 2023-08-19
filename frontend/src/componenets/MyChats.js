@@ -60,15 +60,7 @@ const MyChats = ({ fetchAgain, online }) => {
   let longPressTimeout;
 
   const handleTouchStart = () => {
-    longPressTimeout = setTimeout(() => {
-      <DeleteButton
-        loggedUser={loggedUser}
-        senderName={getSender(loggedUser, chat.users)}
-        id={selectedChat}
-        fetchChats={fetchChats}
-        fetchAgain={fetchAgain}
-      />;
-    }, 500);
+    longPressTimeout = setTimeout(() => {}, 500);
   };
 
   const handleTouchEnd = () => {
@@ -171,7 +163,7 @@ const MyChats = ({ fetchAgain, online }) => {
                     : cha.chatName}
                 </Text>
                 {cha.latestMessage && (
-                  <Text fontSize="xs" marginRight={"5px"}>
+                  <Text fontSize="xs" marginRight={"15px"}>
                     <b>{cha.latestMessage.sender.name} : </b>
                     {cha.latestMessage.content.length > 50
                       ? cha.latestMessage.content.substring(0, 51) + "..."
