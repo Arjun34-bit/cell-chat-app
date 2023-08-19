@@ -22,7 +22,7 @@ import ChatLoading from "./ChatLoading";
 import { getImage, getSender, getreceiverId } from "../config/ChatLogics";
 import GroupChatModal from "./miscelleneous/GroupChatModal";
 import DeleteButton from "./miscelleneous/DeleteButton";
-import MenuList from "./MenuList";
+
 const MyChats = ({ fetchAgain, online }) => {
   // window.location.reload(false);
   const [loggedUser, setLoggedUser] = useState([]);
