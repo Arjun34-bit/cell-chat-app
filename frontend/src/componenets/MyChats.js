@@ -82,9 +82,6 @@ const MyChats = ({ fetchAgain, online }) => {
 
   return (
     <Box
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-      onTouchCancel={handleTouchEnd}
       display={{ base: selectedChat ? "none" : "flex", md: "flex" }}
       flexDir={"column"}
       alignItems={"center"}
@@ -132,6 +129,9 @@ const MyChats = ({ fetchAgain, online }) => {
           <Stack overflowY="scroll">
             {chat.map((cha) => (
               <Box
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+                onTouchCancel={handleTouchEnd}
                 onClick={() => {
                   setSelectedChat(cha);
                   setMenuOperation(cha);
