@@ -77,7 +77,7 @@ const DeleteButton = ({ senderName, id, fetchChats }) => {
         _expanded={{ bg: "#38B2AC" }}
         variant="outline"
       /> */}
-      <MenuList color={"black"}>
+      <MenuList color={"black"} fontSize={"20px"}>
         <MenuItem onClick={onOpen}>Profile</MenuItem>
         <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
           {/* {chat.map((c) => ( */}
