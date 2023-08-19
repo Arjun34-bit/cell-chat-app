@@ -22,7 +22,6 @@ import ChatLoading from "./ChatLoading";
 import { getImage, getSender, getreceiverId } from "../config/ChatLogics";
 import GroupChatModal from "./miscelleneous/GroupChatModal";
 import DeleteButton from "./miscelleneous/DeleteButton";
-import ListsBox from "./miscelleneous/ListsBox";
 
 const MyChats = ({ fetchAgain, online }) => {
   // window.location.reload(false);
