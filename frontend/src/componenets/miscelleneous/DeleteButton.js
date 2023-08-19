@@ -76,7 +76,6 @@ const DeleteButton = ({ senderName, id, fetchChats, isOpen, OnClose }) => {
         {/* <ProfileModal> */}
         <MenuItem>Profile</MenuItem>
         {/* </ProfileModal> */}
-        <MenuItem onClick={onOpen}>Profile</MenuItem>
         <MenuDivider />
         <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
           {/* {chat.map((c) => ( */}
