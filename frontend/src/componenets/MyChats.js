@@ -28,12 +28,6 @@ const MyChats = ({ fetchAgain, online }) => {
 
   const toast = useToast();
 
-  var longPressButton = document.getElementById("long-press");
-  var longPressTimeout;
-
-  longPressButton.addEventListener("touchstart", startLongPress);
-  longPressButton.addEventListener("touchend", cancelLongPress);
-
   const fetchChats = async () => {
     try {
       const config = {
@@ -61,134 +55,139 @@ const MyChats = ({ fetchAgain, online }) => {
     fetchChats();
   }, [fetchAgain]);
 
-  function startLongPress() {
-    longPressTimeout = setTimeout(function () {
-      // <DeleteButton
-      //   loggedUser={loggedUser}
-      //   senderName={getSender(loggedUser, chat.users)}
-      //   id={selectedChat}
-      //   fetchChats={fetchChats}
-      //   fetchAgain={fetchAgain}
-      alert("hello");
-      // />
-    }, 700);
-  }
+  //Long Press Functions ---starts
 
-  function cancelLongPress() {
+  let longPressTimeout;
+
+  const handleTouchStart = () => {
+    longPressTimeout = setTimeout(() => {
+      alert("Hello");
+    }, 1000);
+  };
+
+  const handleTouchEnd = () => {
     clearTimeout(longPressTimeout);
-  }
+  };
+
+  //Long Press Functions ---ends
 
   return (
-    <Box
-      display={{ base: selectedChat ? "none" : "flex", md: "flex" }}
-      flexDir={"column"}
-      alignItems={"center"}
-      p={3}
-      bg="black"
-      w={{ base: "100%", md: "31%" }}
-      borderRadius={"lg"}
-      borderWidth={"1px"}
+    <div
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
     >
       <Box
-        display="flex"
-        color={"white"}
-        pb={3}
-        px={3}
-        fontSize={{ base: "15px", md: "30px" }}
-        fontFamily={"Work Sans"}
-        d="flex"
-        w="100%"
-        justifyContent={"space-between"}
-        alignItems={"center"}
-      >
-        My Chats
-        <GroupChatModal>
-          <Button
-            display="flex"
-            fontSize={{ base: "17px", md: "10px", lg: "17px" }}
-            rightIcon={<AddIcon />}
-          >
-            Create Group
-          </Button>
-        </GroupChatModal>
-      </Box>
-      <Box
-        d="flex"
+        display={{ base: selectedChat ? "none" : "flex", md: "flex" }}
         flexDir={"column"}
+        alignItems={"center"}
         p={3}
-        // bg="#F8F8F8"
-        w="100%"
-        h="100%"
+        bg="black"
+        w={{ base: "100%", md: "31%" }}
         borderRadius={"lg"}
-        overflow={"hidden"}
-        animation={"ease-in"}
+        borderWidth={"1px"}
       >
-        {chat ? (
-          <Stack overflowY="scroll">
-            {chat.map((cha) => (
-              <Box
-                id="long-press"
-                onClick={() => setSelectedChat(cha)}
-                cursor={"pointer"}
-                bg={selectedChat === cha ? "#38B2AC" : "#E8E8E8"}
-                color={selectedChat === cha ? "white" : "black"}
-                px={3}
-                py={2}
-                borderRadius={"lg"}
-                key={cha._id}
-              >
-                <Text fontSize={{ base: "18px", md: "24px" }}>
-                  {!cha.isGroupChat ? (
-                    <DeleteButton
-                      loggedUser={loggedUser}
-                      senderName={getSender(loggedUser, cha.users)}
-                      id={selectedChat}
-                      fetchChats={fetchChats}
-                      fetchAgain={fetchAgain}
+        <Box
+          display="flex"
+          color={"white"}
+          pb={3}
+          px={3}
+          fontSize={{ base: "15px", md: "30px" }}
+          fontFamily={"Work Sans"}
+          d="flex"
+          w="100%"
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
+          My Chats
+          <GroupChatModal>
+            <Button
+              display="flex"
+              fontSize={{ base: "17px", md: "10px", lg: "17px" }}
+              rightIcon={<AddIcon />}
+            >
+              Create Group
+            </Button>
+          </GroupChatModal>
+        </Box>
+        <Box
+          d="flex"
+          flexDir={"column"}
+          p={3}
+          // bg="#F8F8F8"
+          w="100%"
+          h="100%"
+          borderRadius={"lg"}
+          overflow={"hidden"}
+          animation={"ease-in"}
+        >
+          {chat ? (
+            <Stack overflowY="scroll">
+              {chat.map((cha) => (
+                <Box
+                  id="long-press"
+                  onClick={() => setSelectedChat(cha)}
+                  cursor={"pointer"}
+                  bg={selectedChat === cha ? "#38B2AC" : "#E8E8E8"}
+                  color={selectedChat === cha ? "white" : "black"}
+                  px={3}
+                  py={2}
+                  borderRadius={"lg"}
+                  key={cha._id}
+                >
+                  <Text fontSize={{ base: "18px", md: "24px" }}>
+                    {!cha.isGroupChat ? (
+                      <DeleteButton
+                        loggedUser={loggedUser}
+                        senderName={getSender(loggedUser, cha.users)}
+                        id={selectedChat}
+                        fetchChats={fetchChats}
+                        fetchAgain={fetchAgain}
+                      />
+                    ) : (
+                      ""
+                    )}
+                    <Avatar
+                      mr={2}
+                      size="sm"
+                      cursor="pointer"
+                      name={
+                        !cha.isGroupChat
+                          ? getSender(loggedUser, cha.users)
+                          : cha.chatName
+                      }
+                      src={
+                        !cha.isGroupChat
+                          ? getImage(loggedUser, cha.users)
+                          : cha.pic
+                      }
                     />
+                    {!cha.isGroupChat
+                      ? getSender(loggedUser, cha.users)
+                      : cha.chatName}
+                  </Text>
+                  {cha.latestMessage && (
+                    <Text fontSize="xs" marginRight={"5px"}>
+                      <b>{cha.latestMessage.sender.name} : </b>
+                      {cha.latestMessage.content.length > 50
+                        ? cha.latestMessage.content.substring(0, 51) + "..."
+                        : cha.latestMessage.content}
+                    </Text>
+                  )}
+                  {!cha.isGroupChat ? (
+                    <span color="black">{online ? "Online" : ""}</span>
                   ) : (
                     ""
                   )}
-                  <Avatar
-                    mr={2}
-                    size="sm"
-                    cursor="pointer"
-                    name={
-                      !cha.isGroupChat
-                        ? getSender(loggedUser, cha.users)
-                        : cha.chatName
-                    }
-                    src={
-                      !cha.isGroupChat
-                        ? getImage(loggedUser, cha.users)
-                        : cha.pic
-                    }
-                  />
-                  {!cha.isGroupChat
-                    ? getSender(loggedUser, cha.users)
-                    : cha.chatName}
-                </Text>
-                {cha.latestMessage && (
-                  <Text fontSize="xs" marginRight={"5px"}>
-                    <b>{cha.latestMessage.sender.name} : </b>
-                    {cha.latestMessage.content.length > 50
-                      ? cha.latestMessage.content.substring(0, 51) + "..."
-                      : cha.latestMessage.content}
-                  </Text>
-                )}
-                {!cha.isGroupChat ? (
-                  <span color="black">{online ? "Online" : ""}</span>
-                ) : (
-                  ""
-                )}
-              </Box>
-            ))}
-          </Stack>
-        ) : (
-          <ChatLoading />
-        )}
+                </Box>
+              ))}
+            </Stack>
+          ) : (
+            <ChatLoading />
+          )}
+        </Box>
       </Box>
-    </Box>
+    </div>
   );
 };
 
