@@ -71,13 +71,13 @@ const MyChats = ({ fetchAgain, online }) => {
   const handleTouchStart = (event) => {
     longPressTimeout = setTimeout(() => {
       alert("hello");
-      setAnchorEl(event.currentTarget);
+      //setAnchorEl(event.currentTarget);
     }, 500);
   };
 
   const handleTouchEnd = () => {
     clearTimeout(longPressTimeout);
-    setAnchorEl(null);
+    // setAnchorEl(null);
   };
 
   //Long Press Functions ---ends
