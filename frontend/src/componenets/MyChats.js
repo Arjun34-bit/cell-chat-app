@@ -281,7 +281,12 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                     </AlertDialogBody>
 
                     <AlertDialogFooter>
-                      <Button ref={cancelRef} onClick={onClose}>
+                      <Button
+                        ref={cancelRef}
+                        onClick={() => {
+                          setOpenStatus(false);
+                        }}
+                      >
                         Cancel
                       </Button>
                       <Button
