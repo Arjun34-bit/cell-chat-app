@@ -145,7 +145,7 @@ const MyChats = ({ fetchAgain, online }) => {
                 key={cha._id}
               >
                 <Text fontSize={{ base: "18px", md: "24px" }}>
-                  {!cha.isGroupChat ? (
+                  {/* {!cha.isGroupChat ? (
                     <DeleteButton
                       loggedUser={loggedUser}
                       senderName={getSender(loggedUser, cha.users)}
@@ -157,17 +157,7 @@ const MyChats = ({ fetchAgain, online }) => {
                     />
                   ) : (
                     ""
-                  )}
-                  <DeleteButton
-                    onClick={() => setMenuOperation(cha)}
-                    loggedUser={loggedUser}
-                    senderName={getSender(loggedUser, cha.users)}
-                    id={menuOperation}
-                    fetchChats={fetchChats}
-                    fetchAgain={fetchAgain}
-                    isOpen={isOpen}
-                    onClose={onClose}
-                  />
+                  )} */}
 
                   <Avatar
                     mr={2}
@@ -203,6 +193,15 @@ const MyChats = ({ fetchAgain, online }) => {
                 )}
               </Box>
             ))}
+            <DeleteButton
+              loggedUser={loggedUser}
+              // senderName={getSender(loggedUser, cha.users)}
+              id={menuOperation}
+              fetchChats={fetchChats}
+              fetchAgain={fetchAgain}
+              isOpen={isOpen}
+              onClose={onClose}
+            />
           </Stack>
         ) : (
           <ChatLoading />

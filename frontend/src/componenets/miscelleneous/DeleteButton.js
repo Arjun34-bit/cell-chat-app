@@ -44,7 +44,7 @@ const DeleteButton = ({ senderName, id, fetchChats, openS, OnClose }) => {
         config
       );
       toast({
-        title: `${senderName}'s Chat Removed`,
+        title: ` Chat Removed`,
         status: "success",
         duration: 3000,
         position: "bottom",
@@ -79,7 +79,7 @@ const DeleteButton = ({ senderName, id, fetchChats, openS, OnClose }) => {
         <MenuDivider />
         <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
           {/* {chat.map((c) => ( */}
-          Remove {senderName}
+          Remove
           {/* ))} */}
         </MenuItem>
       </MenuList>
@@ -91,7 +91,7 @@ const DeleteButton = ({ senderName, id, fetchChats, openS, OnClose }) => {
         <AlertDialogOverlay>
           <AlertDialogContent>
             <AlertDialogHeader fontSize="lg" fontWeight="bold">
-              Remove {senderName}'s Chat
+              Remove Chat
             </AlertDialogHeader>
 
             <AlertDialogBody>
