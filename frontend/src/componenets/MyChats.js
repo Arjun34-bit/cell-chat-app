@@ -28,9 +28,15 @@ import {
 import axios from "axios";
 import { AddIcon, DeleteIcon, SmallAddIcon } from "@chakra-ui/icons";
 import ChatLoading from "./ChatLoading";
-import { getImage, getSender, getreceiverId } from "../config/ChatLogics";
+import {
+  getImage,
+  getSender,
+  getSenderFull,
+  getreceiverId,
+} from "../config/ChatLogics";
 import GroupChatModal from "./miscelleneous/GroupChatModal";
 import DeleteButton from "./miscelleneous/DeleteButton";
+import ProfileModal from "./miscelleneous/ProfileModal";
 
 const MyChats = ({ fetchAgain, online }) => {
   // window.location.reload(false);
