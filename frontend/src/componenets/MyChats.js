@@ -87,8 +87,6 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   const handleTouchStart = () => {
     longPressTimeout = setTimeout(() => {
       onOpen();
-      console.log(menuOperation);
-      console.log(selectedChat);
     }, 500);
   };
 
@@ -194,6 +192,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 onTouchCancel={handleTouchEnd}
                 onClick={() => {
                   setSelectedChat(cha);
+                  setMenuOperation(cha);
                 }}
                 cursor={"pointer"}
                 bg={selectedChat === cha ? "#38B2AC" : "#E8E8E8"}
@@ -270,7 +269,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
               <AlertDialog
                 isOpen={openStatus}
                 leastDestructiveRef={cancelRef}
-                onClose={onClose}
+                onClose={setOpenStatus(false)}
               >
                 <AlertDialogOverlay>
                   <AlertDialogContent>
