@@ -256,7 +256,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 <MenuItem>Profile</MenuItem>
                 {/* </ProfileModal> */}
                 <MenuDivider />
-                <MenuItem icon={<DeleteIcon />} onClick={inOpen}>
+                <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
                   Remove Chat
                 </MenuItem>
               </MenuList>
