@@ -263,7 +263,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                   icon={<DeleteIcon />}
                   onClick={() => setOpenStatus(true)}
                 >
-                  Remove `${getSender(loggedUser, menuOperation.users)}`
+                  Remove ${getSender(loggedUser, menuOperation.users)}
                 </MenuItem>
               </MenuList>
               <AlertDialog
