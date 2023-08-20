@@ -97,6 +97,8 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   //Long Press Functions ---ends
 
   //Chat Removal for small screen code ---starts
+  console.log(menuOperation);
+  console.log(selectedChat);
 
   const removeChat = async (id) => {
     try {
