@@ -15,6 +15,10 @@ import {
   Text,
   useDisclosure,
   useToast,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { AddIcon, SmallAddIcon } from "@chakra-ui/icons";
@@ -129,12 +133,14 @@ const MyChats = ({ fetchAgain, online }) => {
           <Stack overflowY="scroll">
             {chat.map((cha) => (
               <Box
-                onTouchStart={handleTouchStart}
+                onTouchStart={() => {
+                  handleTouchStart;
+                  setMenuOperation(cha);
+                }}
                 onTouchEnd={handleTouchEnd}
                 onTouchCancel={handleTouchEnd}
                 onClick={() => {
                   setSelectedChat(cha);
-                  setMenuOperation(cha);
                 }}
                 cursor={"pointer"}
                 bg={selectedChat === cha ? "#38B2AC" : "#E8E8E8"}
@@ -193,7 +199,22 @@ const MyChats = ({ fetchAgain, online }) => {
                 )}
               </Box>
             ))}
-            <DeleteButton
+
+            <Menu color="black" isOpen={openS} onClose={onClose}>
+              <MenuButton></MenuButton>
+              <MenuList color={"black"} fontSize={"20px"}>
+                {/* <ProfileModal> */}
+                <MenuItem>Profile</MenuItem>
+                {/* </ProfileModal> */}
+                <MenuDivider />
+                <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
+                  {/* {chat.map((c) => ( */}
+                  Remove
+                  {/* ))} */}
+                </MenuItem>
+              </MenuList>
+            </Menu>
+            {/* <DeleteButton
               loggedUser={loggedUser}
               // senderName={getSender(loggedUser, cha.users)}
               id={menuOperation}
@@ -201,7 +222,7 @@ const MyChats = ({ fetchAgain, online }) => {
               fetchAgain={fetchAgain}
               isOpen={isOpen}
               onClose={onClose}
-            />
+            /> */}
           </Stack>
         ) : (
           <ChatLoading />
