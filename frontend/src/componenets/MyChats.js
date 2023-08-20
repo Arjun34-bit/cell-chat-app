@@ -184,11 +184,12 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
           <Stack overflowY="scroll">
             {chat.map((cha) => (
               <Box
-                onTouchStart={(handleTouchStart, setMenuOperation(cha))}
+                onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
                 onTouchCancel={handleTouchEnd}
                 onClick={() => {
                   setSelectedChat(cha);
+                  setMenuOperation(cha);
                 }}
                 cursor={"pointer"}
                 bg={selectedChat === cha ? "#38B2AC" : "#E8E8E8"}
@@ -202,7 +203,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                   {/* {!cha.isGroupChat ? (
                     <DeleteButton
                       loggedUser={loggedUser}
-                      senderName={getSender(loggedUser, cha.users)}
+                      senderName={getSender(loggedUser, menuOperation.users)}
                       id={selectedChat}
                       fetchChats={fetchChats}
                       fetchAgain={fetchAgain}
