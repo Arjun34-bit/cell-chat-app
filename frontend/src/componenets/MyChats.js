@@ -268,7 +268,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
               <AlertDialog
                 isOpen={openStatus}
                 leastDestructiveRef={cancelRef}
-                onClose={setOpenStatus(false)}
+                onClose={onClose}
               >
                 <AlertDialogOverlay>
                   <AlertDialogContent>
