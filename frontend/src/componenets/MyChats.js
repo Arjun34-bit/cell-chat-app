@@ -184,15 +184,14 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
           <Stack overflowY="scroll">
             {chat.map((cha) => (
               <Box
-                onTouchStart={handleTouchStart}
-                onTouchEnd={() => {
-                  handleTouchEnd();
+                onTouchStart={() => {
+                  handleTouchStart();
                   setMenuOperation(cha);
                 }}
+                onTouchEnd={handleTouchEnd}
                 onTouchCancel={handleTouchEnd}
                 onClick={() => {
                   setSelectedChat(cha);
-                  setMenuOperation(cha);
                 }}
                 cursor={"pointer"}
                 bg={selectedChat === cha ? "#38B2AC" : "#E8E8E8"}
