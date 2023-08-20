@@ -36,6 +36,7 @@ const MyChats = ({ fetchAgain, online }) => {
   const { user, selectedChat, setSelectedChat, chat, setChat } = ChatState();
 
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+  const cancelRef = React.useRef();
 
   const toast = useToast();
 
@@ -82,6 +83,44 @@ const MyChats = ({ fetchAgain, online }) => {
   };
 
   //Long Press Functions ---ends
+
+  //Chat Removal for small screen code ---starts
+
+  const removeChat = async (id) => {
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
+
+      const { data } = await axios.put(
+        "/api/chats/removechat/",
+        { chatId: id._id },
+        config
+      );
+      toast({
+        title: ` Chat Removed`,
+        status: "success",
+        duration: 3000,
+        position: "bottom",
+        isClosable: true,
+      });
+      setSelectedChat("");
+      return;
+    } catch (error) {
+      toast({
+        title: "Chat Removal Failed",
+        description: error.response.data.message,
+        status: "error",
+        duration: 3000,
+        position: "bottom",
+        isClosable: true,
+      });
+      return;
+    }
+  };
+  //Chat Removal for small screen code ---ends
 
   return (
     <Box
@@ -200,16 +239,44 @@ const MyChats = ({ fetchAgain, online }) => {
             <Menu color="black" isOpen={isOpen} onClose={onClose}>
               <MenuButton></MenuButton>
               <MenuList color={"black"} fontSize={"20px"}>
-                {/* <ProfileModal> */}
-                <MenuItem>Profile</MenuItem>
-                {/* </ProfileModal> */}
+                <ProfileModal user={getSenderFull(user, menuOperation.users)}>
+                  <MenuItem>Profile</MenuItem>
+                </ProfileModal>
                 <MenuDivider />
-                <MenuItem icon={<DeleteIcon />}>
-                  {/* {chat.map((c) => ( */}
-                  Remove
-                  {/* ))} */}
+                <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
+                  Remove `{getSender(loggedUser, menuOperation.users)}`
                 </MenuItem>
               </MenuList>
+              <AlertDialog
+                isOpen={isOpen}
+                leastDestructiveRef={cancelRef}
+                onClose={onClose}
+              >
+                <AlertDialogOverlay>
+                  <AlertDialogContent>
+                    <AlertDialogHeader fontSize="lg" fontWeight="bold">
+                      Remove Chat
+                    </AlertDialogHeader>
+
+                    <AlertDialogBody>
+                      Are you sure? You can't undo this action afterwards.
+                    </AlertDialogBody>
+
+                    <AlertDialogFooter>
+                      <Button ref={cancelRef} onClick={onClose}>
+                        Cancel
+                      </Button>
+                      <Button
+                        colorScheme="red"
+                        onClick={() => removeChat(menuOperation._id)}
+                        ml={3}
+                      >
+                        Remove
+                      </Button>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialogOverlay>
+              </AlertDialog>
             </Menu>
             {/* <DeleteButton
               loggedUser={loggedUser}
