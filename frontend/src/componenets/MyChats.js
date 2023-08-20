@@ -251,7 +251,7 @@ const MyChats = ({ fetchAgain, online }) => {
             <Menu color="black" isOpen={isOpen} onClose={onClose}>
               <MenuButton></MenuButton>
               <MenuList color={"black"} fontSize={"20px"}>
-                <ProfileModal user={getSenderFull(user, menuOperation.users)}>
+                <ProfileModal>
                   <MenuItem>Profile</MenuItem>
                 </ProfileModal>
                 <MenuDivider />
