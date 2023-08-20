@@ -47,7 +47,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   const [longPressActive, setLongPressActive] = useState(false);
   const { user, selectedChat, setSelectedChat, chat, setChat } = ChatState();
 
-  const { isOpen, inOpen, onClose, onToggle } = useDisclosure();
+  const { isOpen, inOpen, onOpen, onClose, onToggle } = useDisclosure();
   const cancelRef = React.useRef();
 
   const toast = useToast();
