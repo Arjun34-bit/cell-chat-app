@@ -184,12 +184,11 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
           <Stack overflowY="scroll">
             {chat.map((cha) => (
               <Box
-                onTouchStart={handleTouchStart}
+                onTouchStart={(handleTouchStart, setMenuOperation(cha))}
                 onTouchEnd={handleTouchEnd}
                 onTouchCancel={handleTouchEnd}
                 onClick={() => {
                   setSelectedChat(cha);
-                  setMenuOperation(cha);
                 }}
                 cursor={"pointer"}
                 bg={selectedChat === cha ? "#38B2AC" : "#E8E8E8"}
@@ -261,7 +260,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 </MenuItem>
               </MenuList>
               <AlertDialog
-                isOpen={onOpen}
+                isOpen={isOpen}
                 leastDestructiveRef={cancelRef}
                 onClose={onClose}
               >
