@@ -4,8 +4,6 @@ import {
   Avatar,
   Box,
   Button,
-  MenuItem,
-  MenuList,
   Popover,
   PopoverContent,
   PopoverTrigger,
