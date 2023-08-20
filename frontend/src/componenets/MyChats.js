@@ -45,6 +45,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   const [menuOperation, setMenuOperation] = useState([]);
   const [socketConnected, setSocketConnected] = useState(false);
   const [longPressActive, setLongPressActive] = useState(false);
+  const [openStatus, setOpenStatus] = useState(false);
   const { user, selectedChat, setSelectedChat, chat, setChat } = ChatState();
 
   const { isOpen, inOpen, onOpen, onClose, onToggle } = useDisclosure();
@@ -258,12 +259,15 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 <MenuItem>Profile</MenuItem>
                 {/* </ProfileModal> */}
                 <MenuDivider />
-                <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
-                  Remove Chat
+                <MenuItem
+                  icon={<DeleteIcon />}
+                  onClick={() => setOpenStatus(true)}
+                >
+                  Remove `${getSender(loggedUser, menuOperation.users)}`
                 </MenuItem>
               </MenuList>
               <AlertDialog
-                isOpen={isOpen}
+                isOpen={openStatus}
                 leastDestructiveRef={cancelRef}
                 onClose={onClose}
               >
