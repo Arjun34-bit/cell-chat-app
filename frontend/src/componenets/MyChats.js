@@ -85,8 +85,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
 
   const handleTouchStart = () => {
     longPressTimeout = setTimeout(() => {
-      alert("hello");
-      isOpen();
+      onOpen();
     }, 500);
   };
 
@@ -185,7 +184,10 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
             {chat.map((cha) => (
               <Box
                 onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
+                onTouchEnd={() => {
+                  handleTouchEnd();
+                  setMenuOperation(cha);
+                }}
                 onTouchCancel={handleTouchEnd}
                 onClick={() => {
                   setSelectedChat(cha);
@@ -261,7 +263,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 </MenuItem>
               </MenuList>
               <AlertDialog
-                isOpen={inOpen}
+                isOpen={isOpen}
                 leastDestructiveRef={cancelRef}
                 onClose={onClose}
               >
