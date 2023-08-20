@@ -53,6 +53,8 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
 
   const toast = useToast();
 
+  console.log(menuOperation);
+
   const fetchChats = async () => {
     try {
       const config = {
