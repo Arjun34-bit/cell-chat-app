@@ -256,7 +256,7 @@ const MyChats = ({ fetchAgain, online }) => {
                 </ProfileModal>
                 <MenuDivider />
                 <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
-                  Remove `{getSender(loggedUser, menuOperation.users)}`
+                  Remove Chat
                 </MenuItem>
               </MenuList>
               <AlertDialog
