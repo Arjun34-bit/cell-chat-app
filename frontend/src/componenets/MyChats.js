@@ -38,7 +38,7 @@ import GroupChatModal from "./miscelleneous/GroupChatModal";
 import DeleteButton from "./miscelleneous/DeleteButton";
 import ProfileModal from "./miscelleneous/ProfileModal";
 
-const MyChats = ({ fetchAgain, online }) => {
+const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   // window.location.reload(false);
   const [loggedUser, setLoggedUser] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState([]);
@@ -118,7 +118,8 @@ const MyChats = ({ fetchAgain, online }) => {
         position: "bottom",
         isClosable: true,
       });
-      setSelectedChat("");
+      setMenuOperation("");
+      setFetchAgain(true);
       return;
     } catch (error) {
       toast({
@@ -251,16 +252,16 @@ const MyChats = ({ fetchAgain, online }) => {
             <Menu color="black" isOpen={isOpen} onClose={onClose}>
               <MenuButton></MenuButton>
               <MenuList color={"black"} fontSize={"20px"}>
-                <ProfileModal>
-                  <MenuItem>Profile</MenuItem>
-                </ProfileModal>
+                {/* <ProfileModal> */}
+                <MenuItem>Profile</MenuItem>
+                {/* </ProfileModal> */}
                 <MenuDivider />
                 <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
                   Remove Chat
                 </MenuItem>
               </MenuList>
               <AlertDialog
-                isOpen={isOpen}
+                isOpen={onOpen}
                 leastDestructiveRef={cancelRef}
                 onClose={onClose}
               >
