@@ -47,7 +47,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   const [longPressActive, setLongPressActive] = useState(false);
   const { user, selectedChat, setSelectedChat, chat, setChat } = ChatState();
 
-  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+  const { isOpen, inOpen, onClose, onToggle } = useDisclosure();
   const cancelRef = React.useRef();
 
   const toast = useToast();
@@ -256,12 +256,12 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 <MenuItem>Profile</MenuItem>
                 {/* </ProfileModal> */}
                 <MenuDivider />
-                <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
+                <MenuItem icon={<DeleteIcon />} onClick={inOpen}>
                   Remove Chat
                 </MenuItem>
               </MenuList>
               <AlertDialog
-                isOpen={isOpen}
+                isOpen={inOpen}
                 leastDestructiveRef={cancelRef}
                 onClose={onClose}
               >
