@@ -17,9 +17,10 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  MenuDivider,
 } from "@chakra-ui/react";
 import axios from "axios";
-import { AddIcon, SmallAddIcon } from "@chakra-ui/icons";
+import { AddIcon, DeleteIcon, SmallAddIcon } from "@chakra-ui/icons";
 import ChatLoading from "./ChatLoading";
 import { getImage, getSender, getreceiverId } from "../config/ChatLogics";
 import GroupChatModal from "./miscelleneous/GroupChatModal";
@@ -198,14 +199,14 @@ const MyChats = ({ fetchAgain, online }) => {
               </Box>
             ))}
 
-            <Menu color="black" isOpen={openS} onClose={onClose}>
+            <Menu color="black" isOpen={isOpen} onClose={onClose}>
               <MenuButton></MenuButton>
               <MenuList color={"black"} fontSize={"20px"}>
                 {/* <ProfileModal> */}
                 <MenuItem>Profile</MenuItem>
                 {/* </ProfileModal> */}
                 <MenuDivider />
-                <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
+                <MenuItem icon={<DeleteIcon />}>
                   {/* {chat.map((c) => ( */}
                   Remove
                   {/* ))} */}
