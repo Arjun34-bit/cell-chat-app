@@ -132,9 +132,7 @@ const MyChats = ({ fetchAgain, online }) => {
           <Stack overflowY="scroll">
             {chat.map((cha) => (
               <Box
-                onTouchStart={() => {
-                  handleTouchStart;
-                }}
+                onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
                 onTouchCancel={handleTouchEnd}
                 onClick={() => {
