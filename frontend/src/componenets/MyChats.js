@@ -115,7 +115,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
         config
       );
       toast({
-        title: ` Chat Removed`,
+        title: "Chat removed!",
         status: "success",
         duration: 3000,
         position: "bottom",
@@ -189,12 +189,12 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
               <Box
                 onTouchStart={() => {
                   handleTouchStart();
+                  setMenuOperation(cha);
                 }}
                 onTouchEnd={handleTouchEnd}
                 onTouchCancel={handleTouchEnd}
                 onClick={() => {
                   setSelectedChat(cha);
-                  setMenuOperation(cha);
                 }}
                 cursor={"pointer"}
                 bg={selectedChat === cha ? "#38B2AC" : "#E8E8E8"}
@@ -294,7 +294,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                       </Button>
                       <Button
                         colorScheme="red"
-                        onClick={() => removeChat(menuOperation._id)}
+                        onClick={() => removeChat(menuOperation)}
                         ml={3}
                       >
                         Remove
