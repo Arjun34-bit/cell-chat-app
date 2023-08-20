@@ -42,7 +42,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   // window.location.reload(false);
   const [loggedUser, setLoggedUser] = useState([]);
   const [onlineUsers, setOnlineUsers] = useState([]);
-  const [menuOperation, setMenuOperation] = useState([]);
+  const [menuOperation, setMenuOperation] = useState();
   const [socketConnected, setSocketConnected] = useState(false);
   const [longPressActive, setLongPressActive] = useState(false);
   const [openStatus, setOpenStatus] = useState(false);
