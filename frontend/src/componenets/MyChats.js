@@ -99,6 +99,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   //Chat Removal for small screen code ---starts
 
   const removeChat = async (id) => {
+    console.log(id);
     try {
       const config = {
         headers: {
