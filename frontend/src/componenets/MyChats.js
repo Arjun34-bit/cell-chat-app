@@ -87,6 +87,8 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   const handleTouchStart = () => {
     longPressTimeout = setTimeout(() => {
       onOpen();
+      console.log(menuOperation);
+      console.log(selectedChat);
     }, 500);
   };
 
@@ -262,7 +264,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                   icon={<DeleteIcon />}
                   onClick={() => setOpenStatus(true)}
                 >
-                  Remove {getSender(loggedUser, menuOperation.users)}
+                  Remove Chat
                 </MenuItem>
               </MenuList>
               <AlertDialog
