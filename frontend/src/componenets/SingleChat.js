@@ -288,16 +288,16 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 }
               </>
             )}
-            <Box display={{ base: "none", md: "flex" }}>
-              <DeleteButton
-                loggedUser={user}
-                senderName={getSender(user, selectedChat.users)}
-                id={selectedChat}
-                fetchAgain={fetchAgain}
-                setFetchAgain={setFetchAgain}
-              />
-            </Box>
           </Text>
+          <Box display={{ base: "none", md: "flex" }}>
+            <DeleteButton
+              loggedUser={user}
+              senderName={getSender(user, selectedChat.users)}
+              id={selectedChat}
+              fetchAgain={fetchAgain}
+              setFetchAgain={setFetchAgain}
+            />
+          </Box>
           <Box
             display={"flex"}
             flexDir={"column"}

@@ -211,8 +211,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 borderRadius={"lg"}
                 key={cha._id}
               >
-                <Text fontSize={{ base: "18px", md: "24px" }}>
-                  <Avatar
+                <Avatar
                     mr={2}
                     size="sm"
                     cursor="pointer"
@@ -227,6 +226,8 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                         : cha.pic
                     }
                   />
+                <Text fontSize={{ base: "18px", md: "24px" }}>
+                  
                   {!cha.isGroupChat
                     ? getSender(loggedUser, cha.users)
                     : cha.chatName}
