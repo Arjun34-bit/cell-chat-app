@@ -84,6 +84,9 @@ const DeleteButton = ({
         aria-label="Options"
         icon={<DeleteIcon />}
         variant="ghost"
+        borderRadius={"25px"}
+        fontFamily={"Work Sans"}
+        boxShadow="md"
       ></MenuButton>
       <MenuList color={"black"} fontSize={"20px"}>
         <MenuDivider />
