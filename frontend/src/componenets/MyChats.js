@@ -31,6 +31,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Image,
 } from "@chakra-ui/react";
 import axios from "axios";
 import {
@@ -320,7 +321,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
               <ModalContent height={"410px"}>
                 <ModalHeader
                   display="flex"
-                  fontSize={"30px"}
+                  fontSize={"22px"}
                   fontFamily={"Work Sans"}
                   justifyContent={"center"}
                 >
@@ -339,16 +340,10 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                     src={menuOperation.pic}
                     name={menuOperation.name}
                   />
-                  <Text
-                    fontSize={{ base: "20px", md: "22px" }}
-                    fontFamily="Work Sans"
-                  >
+                  <Text fontSize={{ base: "15px" }} fontFamily="Work Sans">
                     Contact :{menuOperation.phone}
                   </Text>
-                  <Text
-                    fontSize={{ base: "20px", md: "22px" }}
-                    fontFamily="Work Sans"
-                  >
+                  <Text fontSize={{ base: "15px" }} fontFamily="Work Sans">
                     Email :{menuOperation.email}
                   </Text>
                 </ModalBody>
