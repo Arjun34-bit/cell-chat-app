@@ -13,15 +13,10 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-const SmallProfile = ({ showProfile, setShowProfile, user }) => {
+const SmallProfile = ({ isOpen, setShowProfile, user }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Modal
-      size="lg"
-      isOpen={showProfile}
-      onClose={setShowProfile(false)}
-      isCentered
-    >
+    <Modal size="lg" isOpen={isOpen} onClose={setShowProfile(false)} isCentered>
       <ModalOverlay />
       <ModalContent height={"410px"}>
         <ModalHeader
