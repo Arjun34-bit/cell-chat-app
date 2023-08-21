@@ -247,25 +247,23 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
             ))}
 
             <Menu
-              display={"flex"}
-              justifyContent={"center"}
+              placement="top-right"
               bg={"black"}
               borderRadius={"25px"}
               fontFamily={"Work Sans"}
               isOpen={isOpen}
               onClose={onClose}
               style={{ position: "absolute", top: "-600px" }}
+              boxShadow="md"
             >
               <MenuButton></MenuButton>
-              <MenuList color={"white"} fontSize={"20px"}>
+              <MenuList color={"black"} fontSize={"20px"}>
                 {/* <ProfileModal> */}
-                <MenuItem icon={<AtSignIcon />} color="white">
-                  Profile
-                </MenuItem>
+                <MenuItem icon={<AtSignIcon />}>Profile</MenuItem>
                 {/* </ProfileModal> */}
                 <MenuDivider color="white" />
                 <MenuItem
-                  icon={<DeleteIcon color={"white"} />}
+                  icon={<DeleteIcon />}
                   onClick={() => setOpenStatus(true)}
                 >
                   Remove Chat
