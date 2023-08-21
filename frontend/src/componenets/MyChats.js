@@ -186,7 +186,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
       {showProfile && (
         <SmallProfile
           user={getSenderFull(user, menuOperation.users)}
-          showProfile={showProfile}
+          isOpen={showProfile}
           setShowProfile={setShowProfile}
         />
       )}
