@@ -247,7 +247,6 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
             ))}
 
             <Menu
-              placement="top-right"
               bg={"black"}
               borderRadius={"25px"}
               fontFamily={"Work Sans"}
