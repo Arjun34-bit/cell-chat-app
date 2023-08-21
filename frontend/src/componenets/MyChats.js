@@ -24,6 +24,13 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
 } from "@chakra-ui/react";
 import axios from "axios";
 import {
@@ -213,7 +220,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 <Text fontSize={{ base: "18px", md: "24px" }}>
                   <Avatar
                     mr={2}
-                    size="md"
+                    size="sm"
                     cursor="pointer"
                     name={
                       !cha.isGroupChat
@@ -307,15 +314,56 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 </AlertDialogOverlay>
               </AlertDialog>
             </Menu>
-            {/* <DeleteButton
-              loggedUser={loggedUser}
-              // senderName={getSender(loggedUser, cha.users)}
-              id={menuOperation}
-              fetchChats={fetchChats}
-              fetchAgain={fetchAgain}
-              isOpen={isOpen}
-              onClose={onClose}
-            /> */}
+
+            <Modal size="lg" isOpen={showProfile} onClose={onClose} isCentered>
+              <ModalOverlay />
+              <ModalContent height={"410px"}>
+                <ModalHeader
+                  display="flex"
+                  fontSize={"30px"}
+                  fontFamily={"Work Sans"}
+                  justifyContent={"center"}
+                >
+                  {menuOperation.name}
+                </ModalHeader>
+                <ModalCloseButton />
+                <ModalBody
+                  display="flex"
+                  flexDir={"column"}
+                  alignItems={"center"}
+                  justifyContent={"space-between"}
+                >
+                  <Image
+                    borderRadius="full"
+                    boxSize="150px"
+                    src={menuOperation.pic}
+                    name={menuOperation.name}
+                  />
+                  <Text
+                    fontSize={{ base: "20px", md: "22px" }}
+                    fontFamily="Work Sans"
+                  >
+                    Contact :{menuOperation.phone}
+                  </Text>
+                  <Text
+                    fontSize={{ base: "20px", md: "22px" }}
+                    fontFamily="Work Sans"
+                  >
+                    Email :{menuOperation.email}
+                  </Text>
+                </ModalBody>
+
+                <ModalFooter>
+                  <Button
+                    colorScheme="blue"
+                    mr={3}
+                    onClick={() => setShowProfile(false)}
+                  >
+                    Close
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
           </Stack>
         ) : (
           <ChatLoading />
