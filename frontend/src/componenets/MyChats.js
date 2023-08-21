@@ -45,6 +45,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   const [menuOperation, setMenuOperation] = useState();
   const [socketConnected, setSocketConnected] = useState(false);
   const [longPressActive, setLongPressActive] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
   const [openStatus, setOpenStatus] = useState(false);
   const { user, selectedChat, setSelectedChat, chat, setChat } = ChatState();
 
@@ -173,6 +174,9 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
           </Button>
         </GroupChatModal>
       </Box>
+      {showProfile && (
+        <ProfileModal user={getSenderFull(user, menuOperation.users)} />
+      )}
       <Box
         d="flex"
         flexDir={"column"}
@@ -209,7 +213,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 <Text fontSize={{ base: "18px", md: "24px" }}>
                   <Avatar
                     mr={2}
-                    size="sm"
+                    size="md"
                     cursor="pointer"
                     name={
                       !cha.isGroupChat
@@ -253,9 +257,12 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
             >
               <MenuButton></MenuButton>
               <MenuList color={"black"} fontSize={"20px"}>
-                <ProfileModal user={getSenderFull(user, menuOperation.users)}>
-                  <MenuItem icon={<AtSignIcon />}>Profile</MenuItem>
-                </ProfileModal>
+                <MenuItem
+                  icon={<AtSignIcon />}
+                  onClick={() => setShowProfile(true)}
+                >
+                  Profile
+                </MenuItem>
                 <MenuDivider color="white" />
                 <MenuItem
                   icon={<DeleteIcon />}
