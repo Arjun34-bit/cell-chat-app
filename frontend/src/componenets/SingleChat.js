@@ -262,7 +262,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             <Box display={{ base: "none", md: "flex" }}>
               <DeleteButton
                 loggedUser={user}
-                senderName={getSender(loggedUser, selectedChat.users)}
+                senderName={getSender(user, selectedChat.users)}
                 id={selectedChat}
                 fetchAgain={fetchAgain}
                 setFetchAgain={setFetchAgain}
