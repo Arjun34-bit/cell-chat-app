@@ -248,12 +248,12 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
             <Menu
               display={"flex"}
               justifyContent={"center"}
-              bg="black"
-              color="white"
+              bg={"black"}
               borderRadius={"25px"}
               fontFamily={"Work Sans"}
               isOpen={isOpen}
               onClose={onClose}
+              style={{ position: "absolute", top: "-600px" }}
             >
               <MenuButton></MenuButton>
               <MenuList color={"white"} fontSize={"20px"}>
