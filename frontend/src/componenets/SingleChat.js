@@ -37,6 +37,7 @@ import BsEmojiSmileFill, { BsEmojiLaughingFill } from "react-icons/bs";
 import Picker, { Emoji } from "emoji-picker-react";
 
 import io from "socket.io-client";
+import DeleteButton from "./miscelleneous/DeleteButton";
 const ENDPOINT = "http://localhost:5000";
 var socket, selectedChatCompare;
 
@@ -260,7 +261,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             />
             <Box display={{ base: "none", md: "flex" }}>
               <DeleteButton
-                loggedUser={loggedUser}
+                loggedUser={user}
                 senderName={getSender(loggedUser, selectedChat.users)}
                 id={selectedChat}
                 fetchAgain={fetchAgain}
