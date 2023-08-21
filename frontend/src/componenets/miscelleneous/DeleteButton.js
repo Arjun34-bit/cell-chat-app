@@ -23,7 +23,14 @@ import { useEffect } from "react";
 import axios from "axios";
 import ProfileModal from "./ProfileModal";
 
-const DeleteButton = ({ senderName, id, fetchChats, openS, OnClose }) => {
+const DeleteButton = ({
+  senderName,
+  id,
+  fetchChats,
+  openS,
+  OnClose,
+  setFetchAgain,
+}) => {
   const { user, setSelectedChat, selectedChat } = ChatState();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
@@ -51,6 +58,7 @@ const DeleteButton = ({ senderName, id, fetchChats, openS, OnClose }) => {
         isClosable: true,
       });
       setSelectedChat("");
+      setFetchAgain(true);
       return;
     } catch (error) {
       toast({
@@ -70,12 +78,14 @@ const DeleteButton = ({ senderName, id, fetchChats, openS, OnClose }) => {
   }, [removeChat]);
 
   return (
-    <Menu color="black" isOpen={openS} onClose={onClose}>
-      <MenuButton></MenuButton>
+    <Menu color="black">
+      <MenuButton
+        as={IconButton}
+        aria-label="Options"
+        icon={<DeleteIcon />}
+        variant="ghost"
+      ></MenuButton>
       <MenuList color={"black"} fontSize={"20px"}>
-        {/* <ProfileModal> */}
-        <MenuItem>Profile</MenuItem>
-        {/* </ProfileModal> */}
         <MenuDivider />
         <MenuItem icon={<DeleteIcon />} onClick={onOpen}>
           {/* {chat.map((c) => ( */}

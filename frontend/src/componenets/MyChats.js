@@ -26,7 +26,12 @@ import {
   AlertDialogOverlay,
 } from "@chakra-ui/react";
 import axios from "axios";
-import { AddIcon, DeleteIcon, SmallAddIcon } from "@chakra-ui/icons";
+import {
+  AddIcon,
+  AtSignIcon,
+  DeleteIcon,
+  SmallAddIcon,
+} from "@chakra-ui/icons";
 import ChatLoading from "./ChatLoading";
 import {
   getImage,
@@ -205,20 +210,6 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 key={cha._id}
               >
                 <Text fontSize={{ base: "18px", md: "24px" }}>
-                  {/* {!cha.isGroupChat ? (
-                    <DeleteButton
-                      loggedUser={loggedUser}
-                      senderName={getSender(loggedUser, menuOperation.users)}
-                      id={selectedChat}
-                      fetchChats={fetchChats}
-                      fetchAgain={fetchAgain}
-                      openS={isOpen}
-                      onClose={onClose}
-                    />
-                  ) : (
-                    ""
-                  )} */}
-
                   <Avatar
                     mr={2}
                     size="sm"
@@ -254,15 +245,26 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
               </Box>
             ))}
 
-            <Menu color="black" isOpen={isOpen} onClose={onClose}>
+            <Menu
+              display={"flex"}
+              justifyContent={"center"}
+              bg="black"
+              color="white"
+              borderRadius={"25px"}
+              fontFamily={"Work Sans"}
+              isOpen={isOpen}
+              onClose={onClose}
+            >
               <MenuButton></MenuButton>
-              <MenuList color={"black"} fontSize={"20px"}>
+              <MenuList color={"white"} fontSize={"20px"}>
                 {/* <ProfileModal> */}
-                <MenuItem>Profile</MenuItem>
+                <MenuItem icon={<AtSignIcon />} color="white">
+                  Profile
+                </MenuItem>
                 {/* </ProfileModal> */}
-                <MenuDivider />
+                <MenuDivider color="white" />
                 <MenuItem
-                  icon={<DeleteIcon />}
+                  icon={<DeleteIcon color={"white"} />}
                   onClick={() => setOpenStatus(true)}
                 >
                   Remove Chat

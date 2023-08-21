@@ -258,6 +258,16 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               icon={<ArrowLeftIcon />}
               onClick={() => setSelectedChat("")}
             />
+            <Box display={{ base: "none", md: "flex" }}>
+              <DeleteButton
+                loggedUser={loggedUser}
+                senderName={getSender(loggedUser, selectedChat.users)}
+                id={selectedChat}
+                fetchAgain={fetchAgain}
+                setFetchAgain={setFetchAgain}
+              />
+            </Box>
+
             {!selectedChat.isGroupChat ? (
               <>
                 <Avatar
