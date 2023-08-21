@@ -45,6 +45,7 @@ import { getImage, getSender, getSenderFull } from "../config/ChatLogics";
 import GroupChatModal from "./miscelleneous/GroupChatModal";
 import DeleteButton from "./miscelleneous/DeleteButton";
 import ProfileModal from "./miscelleneous/ProfileModal";
+import SmallProfile from "./miscelleneous/SmallProfile";
 
 const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   // window.location.reload(false);
@@ -183,7 +184,11 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
         </GroupChatModal>
       </Box>
       {showProfile && (
-        <ProfileModal user={getSenderFull(user, menuOperation.users)} />
+        <SmallProfile
+          user={getSenderFull(user, menuOperation.users)}
+          showProfile={showProfile}
+          setShowProfile={setShowProfile}
+        />
       )}
       <Box
         d="flex"
@@ -315,50 +320,6 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 </AlertDialogOverlay>
               </AlertDialog>
             </Menu>
-
-            <Modal size="lg" isOpen={showProfile} onClose={onClose} isCentered>
-              <ModalOverlay />
-              <ModalContent height={"410px"}>
-                <ModalHeader
-                  display="flex"
-                  fontSize={"22px"}
-                  fontFamily={"Work Sans"}
-                  justifyContent={"center"}
-                >
-                  {menuOperation.name}
-                </ModalHeader>
-                <ModalCloseButton />
-                <ModalBody
-                  display="flex"
-                  flexDir={"column"}
-                  alignItems={"center"}
-                  justifyContent={"space-between"}
-                >
-                  <Image
-                    borderRadius="full"
-                    boxSize="150px"
-                    src={menuOperation.pic}
-                    name={menuOperation.name}
-                  />
-                  <Text fontSize={{ base: "15px" }} fontFamily="Work Sans">
-                    Contact :{menuOperation.phone}
-                  </Text>
-                  <Text fontSize={{ base: "15px" }} fontFamily="Work Sans">
-                    Email :{menuOperation.email}
-                  </Text>
-                </ModalBody>
-
-                <ModalFooter>
-                  <Button
-                    colorScheme="blue"
-                    mr={3}
-                    onClick={() => setShowProfile(false)}
-                  >
-                    Close
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
           </Stack>
         ) : (
           <ChatLoading />
