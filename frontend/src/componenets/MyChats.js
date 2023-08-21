@@ -211,7 +211,8 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                 borderRadius={"lg"}
                 key={cha._id}
               >
-                <Avatar
+                <Text fontSize={{ base: "18px", md: "24px" }}>
+                  <Avatar
                     mr={2}
                     size="sm"
                     cursor="pointer"
@@ -226,14 +227,12 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                         : cha.pic
                     }
                   />
-                <Text fontSize={{ base: "18px", md: "24px" }}>
-                  
                   {!cha.isGroupChat
                     ? getSender(loggedUser, cha.users)
                     : cha.chatName}
                 </Text>
                 {cha.latestMessage && (
-                  <Text fontSize="xs" paddingLeft={"5"}>
+                  <Text fontSize="xs" paddingLeft={"8"}>
                     <b>{cha.latestMessage.sender.name} : </b>
                     {cha.latestMessage.content.length > 50
                       ? cha.latestMessage.content.substring(0, 51) + "..."
@@ -259,9 +258,9 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
             >
               <MenuButton></MenuButton>
               <MenuList color={"black"} fontSize={"20px"}>
-                {/* <ProfileModal> */}
-                <MenuItem icon={<AtSignIcon />}>Profile</MenuItem>
-                {/* </ProfileModal> */}
+                <ProfileModal user={getsenderFull(user, menuOperation.users)}>
+                  <MenuItem icon={<AtSignIcon />}>Profile</MenuItem>
+                </ProfileModal>
                 <MenuDivider color="white" />
                 <MenuItem
                   icon={<DeleteIcon />}
