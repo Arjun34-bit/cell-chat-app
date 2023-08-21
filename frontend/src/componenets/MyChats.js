@@ -33,12 +33,7 @@ import {
   SmallAddIcon,
 } from "@chakra-ui/icons";
 import ChatLoading from "./ChatLoading";
-import {
-  getImage,
-  getSender,
-  getSenderFull,
-  getreceiverId,
-} from "../config/ChatLogics";
+import { getImage, getSender, getSenderFull } from "../config/ChatLogics";
 import GroupChatModal from "./miscelleneous/GroupChatModal";
 import DeleteButton from "./miscelleneous/DeleteButton";
 import ProfileModal from "./miscelleneous/ProfileModal";
@@ -258,7 +253,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
             >
               <MenuButton></MenuButton>
               <MenuList color={"black"} fontSize={"20px"}>
-                <ProfileModal user={getsenderFull(user, menuOperation.users)}>
+                <ProfileModal user={getSenderFull(user, menuOperation.users)}>
                   <MenuItem icon={<AtSignIcon />}>Profile</MenuItem>
                 </ProfileModal>
                 <MenuDivider color="white" />
