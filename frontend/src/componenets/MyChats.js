@@ -128,6 +128,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
       });
       setMenuOperation("");
       setFetchAgain(true);
+      setOpenStatus(false);
       return;
     } catch (error) {
       toast({
