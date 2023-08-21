@@ -193,6 +193,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
           <Stack overflowY="scroll">
             {chat.map((cha) => (
               <Box
+                fontFamily={"Work Sans"}
                 onTouchStart={() => {
                   handleTouchStart();
                   setMenuOperation(cha);
@@ -231,7 +232,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                     : cha.chatName}
                 </Text>
                 {cha.latestMessage && (
-                  <Text fontSize="xs" marginRight={"15px"}>
+                  <Text fontSize="xs" paddingLeft={"5"}>
                     <b>{cha.latestMessage.sender.name} : </b>
                     {cha.latestMessage.content.length > 50
                       ? cha.latestMessage.content.substring(0, 51) + "..."
