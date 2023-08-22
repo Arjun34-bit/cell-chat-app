@@ -21,7 +21,7 @@ const SmallProfile = ({ showProfile, setShowProfile, user }) => {
     onClose();
   }
   return (
-    <Modal size="lg" isOpen={isOpen} onClose={setShowProfile(false)} isCentered>
+    <Modal size="lg" isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
       <ModalContent height={"410px"}>
         <ModalHeader
