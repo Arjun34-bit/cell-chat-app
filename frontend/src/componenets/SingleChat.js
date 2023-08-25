@@ -290,16 +290,16 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     setFetchAgain={setFetchAgain}
                     fetchMessages={fetchAllMessages}
                   >
-                    <InfoOutlineIcon marginLeft={"220px"} />
+                    <InfoOutlineIcon
+                      marginLeft={"600px"}
+                      paddingRight={"5px"}
+                    />
                   </UpdateGroupChatModal>
                 }
-                <CalendarIcon marginLeft={"150px"} />
+                <CalendarIcon />
               </>
             )}
-            <Box
-              display={{ base: "none", md: "flex" }}
-              justifyContent={"right"}
-            >
+            <Box display={{ base: "none", md: "flex" }}>
               <DeleteButton
                 loggedUser={user}
                 senderName={getSender(user, selectedChat.users)}
