@@ -252,8 +252,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             w="100%"
             fontFamily={"Work Sans"}
             display={"flex"}
-            // justifyContent={{ base: "space-between" }}
-            // alignItems={"center"}
+            justifyContent={{ base: "space-between" }}
+            alignItems={"center"}
           >
             <IconButton
               display={{ base: "flex", md: "none" }}
@@ -270,15 +270,10 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                   name={user.name}
                   src={getImage(user, selectedChat.users)}
                 />
-                <Text marginRight={"10px"}>
-                  {getSender(user, selectedChat.users)}
-                </Text>
+
+                {getSender(user, selectedChat.users)}
                 <ProfileModal user={getSenderFull(user, selectedChat.users)}>
-                  <InfoOutlineIcon
-                    size="1xl"
-                    marginLeft={"600px"}
-                    paddingRight={"5px"}
-                  />
+                  <InfoOutlineIcon size="1xl" />
                 </ProfileModal>
               </>
             ) : (
@@ -290,10 +285,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     setFetchAgain={setFetchAgain}
                     fetchMessages={fetchAllMessages}
                   >
-                    <InfoOutlineIcon
-                      marginLeft={"600px"}
-                      paddingRight={"5px"}
-                    />
+                    <InfoOutlineIcon />
                   </UpdateGroupChatModal>
                 }
                 <CalendarIcon />
