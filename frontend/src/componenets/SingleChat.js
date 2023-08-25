@@ -15,6 +15,7 @@ import {
   ArrowLeftIcon,
   ArrowRightIcon,
   AttachmentIcon,
+  CalendarIcon,
   InfoIcon,
   InfoOutlineIcon,
   SettingsIcon,
@@ -286,6 +287,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     <InfoOutlineIcon />
                   </UpdateGroupChatModal>
                 }
+                <CalendarIcon />
               </>
             )}
             <Box display={{ base: "none", md: "flex" }} marginEnd={"4"}>
