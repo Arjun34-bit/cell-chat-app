@@ -295,7 +295,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             <Box
               display={{ base: "none", md: "flex" }}
               position="absolute"
-              top="50%"
               transform="translateY(-50%)"
               right={0}
             >
