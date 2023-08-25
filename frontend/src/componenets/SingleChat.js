@@ -292,7 +292,10 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 <CalendarIcon marginLeft={"150px"} />
               </>
             )}
-            <Box display={{ base: "none", md: "flex" }} marginLeft={"200"}>
+            <Box
+              display={{ base: "none", md: "flex" }}
+              justifyContent={"flex-end"}
+            >
               <DeleteButton
                 loggedUser={user}
                 senderName={getSender(user, selectedChat.users)}
