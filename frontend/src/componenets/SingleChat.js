@@ -270,9 +270,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                   name={user.name}
                   src={getImage(user, selectedChat.users)}
                 />
-                {getSender(user, selectedChat.users)}
+                <Text marginRight={"10px"}>
+                  {getSender(user, selectedChat.users)}
+                </Text>
                 <ProfileModal user={getSenderFull(user, selectedChat.users)}>
-                  <InfoOutlineIcon size="1xl" marginEnd={"8px"} />
+                  <InfoOutlineIcon size="1xl" marginLeft={"150px"} />
                 </ProfileModal>
               </>
             ) : (
@@ -284,13 +286,13 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     setFetchAgain={setFetchAgain}
                     fetchMessages={fetchAllMessages}
                   >
-                    <InfoOutlineIcon marginEnd={"8px"} />
+                    <InfoOutlineIcon marginLeft={"140px"} />
                   </UpdateGroupChatModal>
                 }
-                <CalendarIcon marginEnd={"4px"} />
+                <CalendarIcon marginLeft={"150px"} />
               </>
             )}
-            <Box display={{ base: "none", md: "flex" }} marginRight={"5px"}>
+            <Box display={{ base: "none", md: "flex" }} marginLeft={"160px"}>
               <DeleteButton
                 loggedUser={user}
                 senderName={getSender(user, selectedChat.users)}
