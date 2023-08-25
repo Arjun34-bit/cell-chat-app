@@ -252,7 +252,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             w="100%"
             fontFamily={"Work Sans"}
             display={"flex"}
-            justifyContent={{ base: "space-between" }}
+            // justifyContent={{ base: "space-between" }}
             // alignItems={"center"}
           >
             <IconButton
