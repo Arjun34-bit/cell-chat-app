@@ -287,7 +287,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     <InfoOutlineIcon marginEnd={"8"} />
                   </UpdateGroupChatModal>
                 }
-                <CalendarIcon marginEnd={"6"} />
+                <CalendarIcon marginEnd={"4"} />
               </>
             )}
             <Box display={{ base: "none", md: "flex" }} marginEnd={"6"}>
