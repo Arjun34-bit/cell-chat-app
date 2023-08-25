@@ -274,7 +274,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 {getSender(user, selectedChat.users)}
                 <div display="flex" justifyContent="flex-end">
                   <ProfileModal user={getSenderFull(user, selectedChat.users)}>
-                    <InfoOutlineIcon size="1xl" />
+                    <InfoOutlineIcon size="1xl" marginLeft={0} />
                   </ProfileModal>
                 </div>
               </>
@@ -287,7 +287,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     setFetchAgain={setFetchAgain}
                     fetchMessages={fetchAllMessages}
                   >
-                    <InfoOutlineIcon />
+                    <InfoOutlineIcon marginLeft={0} />
                   </UpdateGroupChatModal>
                 }
                 <CalendarIcon />
