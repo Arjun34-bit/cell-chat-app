@@ -294,7 +294,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             )}
             <Box
               display={{ base: "none", md: "flex" }}
-              justifyContent={"flex-end"}
+              justifyContent={"right"}
             >
               <DeleteButton
                 loggedUser={user}
