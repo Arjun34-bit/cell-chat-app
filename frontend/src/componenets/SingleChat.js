@@ -272,9 +272,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 />
 
                 {getSender(user, selectedChat.users)}
-                <ProfileModal user={getSenderFull(user, selectedChat.users)}>
-                  <InfoOutlineIcon size="1xl" />
-                </ProfileModal>
+                <div>
+                  <ProfileModal user={getSenderFull(user, selectedChat.users)}>
+                    <InfoOutlineIcon size="1xl" />
+                  </ProfileModal>
+                </div>
               </>
             ) : (
               <>
