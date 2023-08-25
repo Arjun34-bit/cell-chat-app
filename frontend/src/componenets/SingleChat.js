@@ -288,7 +288,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 }
               </>
             )}
-            <Box display={{ base: "none", md: "flex" }}>
+            <Box display={{ base: "none", md: "flex" }} marginEnd={"4"}>
               <DeleteButton
                 loggedUser={user}
                 senderName={getSender(user, selectedChat.users)}
