@@ -286,7 +286,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     setFetchAgain={setFetchAgain}
                     fetchMessages={fetchAllMessages}
                   >
-                    <InfoOutlineIcon marginLeft={"140px"} />
+                    <InfoOutlineIcon marginLeft={"220px"} />
                   </UpdateGroupChatModal>
                 }
                 <CalendarIcon marginLeft={"150px"} />
