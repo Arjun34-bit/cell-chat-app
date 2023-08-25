@@ -272,11 +272,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 />
 
                 {getSender(user, selectedChat.users)}
-                <div display="flex" justifyContent="flex-end">
-                  <ProfileModal user={getSenderFull(user, selectedChat.users)}>
-                    <InfoOutlineIcon size="1xl" marginLeft={0} />
-                  </ProfileModal>
-                </div>
+                <ProfileModal user={getSenderFull(user, selectedChat.users)}>
+                  <InfoOutlineIcon size="1xl" marginLeft={0} />
+                </ProfileModal>
               </>
             ) : (
               <>
@@ -293,15 +291,17 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 <CalendarIcon />
               </>
             )}
-            <Box display={{ base: "none", md: "flex" }}>
-              <DeleteButton
-                loggedUser={user}
-                senderName={getSender(user, selectedChat.users)}
-                id={selectedChat}
-                fetchAgain={fetchAgain}
-                setFetchAgain={setFetchAgain}
-              />
-            </Box>
+            <div>
+              <Box display={{ base: "none", md: "flex" }}>
+                <DeleteButton
+                  loggedUser={user}
+                  senderName={getSender(user, selectedChat.users)}
+                  id={selectedChat}
+                  fetchAgain={fetchAgain}
+                  setFetchAgain={setFetchAgain}
+                />
+              </Box>
+            </div>
           </Text>
           <Box
             display={"flex"}
