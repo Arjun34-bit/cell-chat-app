@@ -272,7 +272,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 />
                 {getSender(user, selectedChat.users)}
                 <ProfileModal user={getSenderFull(user, selectedChat.users)}>
-                  <InfoOutlineIcon size="1xl" marginEnd={"6"} />
+                  <InfoOutlineIcon size="1xl" marginRight={"8px"} />
                 </ProfileModal>
               </>
             ) : (
@@ -287,7 +287,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     <InfoOutlineIcon />
                   </UpdateGroupChatModal>
                 }
-                <CalendarIcon />
+                <CalendarIcon marginRight={"6px"} />
               </>
             )}
             <Box display={{ base: "none", md: "flex" }} marginEnd={"4"}>
