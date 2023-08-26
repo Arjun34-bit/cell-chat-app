@@ -12,6 +12,9 @@ import {
   Select,
   Button,
   HStack,
+  FormControl,
+  FormLabel,
+  Input,
 } from "@chakra-ui/react";
 
 const ScheduleModal = () => {
