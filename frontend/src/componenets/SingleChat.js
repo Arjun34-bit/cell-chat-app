@@ -39,6 +39,7 @@ import Picker, { Emoji } from "emoji-picker-react";
 
 import io from "socket.io-client";
 import DeleteButton from "./miscelleneous/DeleteButton";
+import ScheduleModal from "./miscelleneous/ScheduleModal";
 const ENDPOINT = "http://localhost:5000";
 var socket, selectedChatCompare;
 
@@ -288,7 +289,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     <InfoOutlineIcon />
                   </UpdateGroupChatModal>
                 }
-                <CalendarIcon />
+                <ScheduleModal>
+                  <CalendarIcon />
+                </ScheduleModal>
               </>
             )}
             <div>
