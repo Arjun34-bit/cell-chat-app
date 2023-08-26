@@ -18,8 +18,6 @@ const ScrollableChat = ({ messages }) => {
     const splitTime = timestamp.split(".");
     const time = splitTime[0].split("T");
     const fTime = time[1].slice(0, 5);
-    setTime(fTime);
-    console.log(fTime);
     return fTime;
   };
 
