@@ -68,7 +68,9 @@ const ScrollableChat = ({ messages }) => {
               }}
             >
               {m.content}
-              <sub paddingLeft={"2px"}>{timeCode(m.createdAt)}</sub>
+              <sub padding="1px 2px" fontSize="xs">
+                {timeCode(m.createdAt)}
+              </sub>
             </span>
           </div>
         ))}
