@@ -21,6 +21,7 @@ const ScrollableChat = ({ messages }) => {
     const fTime = time[1].slice(0, 5);
     setTime(fTime);
     console.log(fTime);
+    return fTime;
   };
 
   return (
