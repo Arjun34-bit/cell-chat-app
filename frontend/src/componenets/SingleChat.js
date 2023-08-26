@@ -289,9 +289,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     <InfoOutlineIcon />
                   </UpdateGroupChatModal>
                 }
-                <ScheduleModal>
-                  <CalendarIcon />
-                </ScheduleModal>
+
+                <ScheduleModal />
               </>
             )}
             <div>

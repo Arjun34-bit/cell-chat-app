@@ -16,12 +16,22 @@ import {
   FormLabel,
   Input,
 } from "@chakra-ui/react";
+import { CalendarIcon } from "@chakra-ui/icons";
 
 const ScheduleModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
+      <Button
+        as={IconButton}
+        aria-label="Options"
+        icon={<CalendarIcon />}
+        variant="ghost"
+        borderRadius={"25px"}
+        fontFamily={"Work Sans"}
+        boxShadow="md"
+        onClick={onOpen}
+      ></Button>
 
       <Modal
         blockScrollOnMount={false}
