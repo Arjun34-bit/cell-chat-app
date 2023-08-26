@@ -15,7 +15,6 @@ const ScrollableChat = ({ messages }) => {
   const { user } = ChatState();
 
   const timeCode = (timestamp) => {
-    const timestamp = "2023-07-01T09:19:53.344+00:00";
     const splitTime = timestamp.split(".");
     const time = splitTime[0].split("T");
     const fTime = time[1].slice(0, 5);
