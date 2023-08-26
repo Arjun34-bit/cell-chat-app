@@ -15,10 +15,26 @@ const ScrollableChat = ({ messages }) => {
   const { user } = ChatState();
 
   const timeCode = (timestamp) => {
-    const splitTime = timestamp.split(".");
-    const time = splitTime[0].split("T");
-    const fTime = time[1].slice(0, 5);
-    return fTime;
+    // const splitTime = timestamp.split(".");
+    // const time = splitTime[0].split("T");
+    // const fTime = time[1].slice(0, 5);
+    // return fTime;
+
+    const utcTime = new Date(timestamp); // Adjust the date and time as needed
+
+    utcTime.setTime(
+      utcTime.getTime() + utcTime.getTimezoneOffset() * 60 * 1000
+    );
+
+    const timeDifference = 5.5 * 60 * 60 * 1000; // 5 hours and 30 minutes in milliseconds
+
+    const istTime = new Date(utcTime.getTime() + timeDifference);
+
+    const formattedIstTime = istTime.toLocaleTimeString("en-IN", {
+      timeZone: "Asia/Kolkata",
+    });
+
+    return formattedIstTime;
   };
 
   return (
@@ -52,7 +68,7 @@ const ScrollableChat = ({ messages }) => {
               }}
             >
               {m.content}
-              <sub>{timeCode(m.createdAt)}</sub>
+              <sub paddingLeft={"2px"}>{timeCode(m.createdAt)}</sub>
             </span>
           </div>
         ))}
