@@ -11,6 +11,7 @@ import {
   Text,
   Select,
   Button,
+  HStack,
 } from "@chakra-ui/react";
 
 const ScheduleModal = () => {
@@ -30,7 +31,7 @@ const ScheduleModal = () => {
           <ModalHeader>Schedule Your Message</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Box display={"flex"} justifyContent={"space-between"}>
+            <HStack>
               <Select placeholder="Select option">
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>
@@ -46,7 +47,7 @@ const ScheduleModal = () => {
                 <option value="option2">Option 2</option>
                 <option value="option3">Option 3</option>
               </Select>
-            </Box>
+            </HStack>
 
             <FormControl id="msg" isRequired>
               <FormLabel>Message :</FormLabel>

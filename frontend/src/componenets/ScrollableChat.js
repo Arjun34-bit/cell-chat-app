@@ -67,7 +67,7 @@ const ScrollableChat = ({ messages }) => {
                 marginTop: isSameUser(messages, m, i, user._id) ? 3 : 10,
               }}
             >
-              {m.content}
+              <b>{m.content}</b>
               <sub padding="1px 2px" fontSize="xs">
                 {timeCode(m.createdAt)}
               </sub>
