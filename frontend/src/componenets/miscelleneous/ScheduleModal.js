@@ -45,25 +45,28 @@ const ScheduleModal = () => {
           <ModalHeader>Schedule Your Message</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
+            <Text display={"flex"} justifyContent={"center"}>
+              Select Time
+            </Text>
             <HStack>
-              <Select placeholder="Select option">
+              <Select placeholder="Hours">
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>
                 <option value="option3">Option 3</option>
               </Select>
-              <Select placeholder="Select option">
+              <Select placeholder="Minute">
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>
                 <option value="option3">Option 3</option>
               </Select>
-              <Select placeholder="Select option">
+              <Select placeholder="AM/PM">
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>
                 <option value="option3">Option 3</option>
               </Select>
             </HStack>
 
-            <FormControl id="msg" isRequired>
+            <FormControl id="msg" isRequired mt={5}>
               <FormLabel>Message :</FormLabel>
               <Input placeholder="Enter Your Message"></Input>
             </FormControl>
@@ -71,6 +74,7 @@ const ScheduleModal = () => {
 
           <ModalFooter>
             <Button
+              mt={5}
               variant="solid"
               colorScheme="blue"
               color="black"
