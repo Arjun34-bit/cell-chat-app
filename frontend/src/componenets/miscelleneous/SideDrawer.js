@@ -29,7 +29,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ChatLoading from "../ChatLoading";
 import UserListItem from "../UserAvatar/UserListItem";
-import { getSender } from "../../config/ChatLogics";
+import { getSender, getreceiverEmail } from "../../config/ChatLogics";
 import NotificationBadge from "react-notification-badge";
 import { Effect } from "react-notification-badge";
 
@@ -52,6 +52,8 @@ const SideDrawer = ({}) => {
     notification,
     setNotification,
   } = ChatState();
+
+  const notifySenderNames = [""];
 
   const logoutHandler = () => {
     localStorage.removeItem("userInfo");
@@ -131,6 +133,19 @@ const SideDrawer = ({}) => {
     }
   };
 
+  const sendEmailNotify = async (mail, names) => {
+    try {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
+
+      await axios.put("api/notification/", { mail, names }, config);
+    } catch (error) {}
+  };
+
   return (
     <>
       <Box
@@ -200,6 +215,12 @@ const SideDrawer = ({}) => {
                     : `New Message From ${getSender(user, notify.chat.users)}`}
                 </MenuItem>
               ))}
+              {notification.map((n) =>
+                notifySenderNames.push(getSender(user, notify.chat.users))
+              )}
+              {notification
+                ? sendEmailNotify(user.email, notifySenderNames)
+                : ""}
             </MenuList>
           </Menu>
           <Menu>

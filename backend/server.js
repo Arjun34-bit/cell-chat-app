@@ -19,6 +19,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/chats", chatRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/otp", verificationRoutes);
+app.use("/api/notification", notificationRoutes);
 
 //--------------Deployment---------
 
