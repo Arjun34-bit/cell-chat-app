@@ -7,7 +7,7 @@ const nodemailer = require("nodemailer");
 const generateToken = require("../config/generateToken");
 
 const sendMail = asyncHandler(async (req, res) => {
-  const { email, senderNames } = req.body;
+  const { mail, names } = req.body;
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -19,9 +19,9 @@ const sendMail = asyncHandler(async (req, res) => {
 
   const mailOptions = {
     from: "cellchat86@gmail.com",
-    to: email,
+    to: mail,
     subject: "You May Have new Messages",
-    html: `<h1>Hello! from Cell-Chat</h1> <h4>Your have New Messages from <b>${senderNames}</b></h4>`,
+    html: `<h1>Hello! from Cell-Chat</h1> <h4>Your have New Messages from <b>${names}</b></h4>`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
