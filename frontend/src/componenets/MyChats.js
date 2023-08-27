@@ -96,7 +96,8 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
 
   let longPressTimeout;
 
-  const handleTouchStart = () => {
+  const handleTouchStart = (e) => {
+    e.preventDefault();
     longPressTimeout = setTimeout(() => {
       onOpen();
     }, 500);

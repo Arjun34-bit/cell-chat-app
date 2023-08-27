@@ -22,13 +22,11 @@ import { CalendarIcon } from "@chakra-ui/icons";
 const ScheduleModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const options = (val) => {
-    for (let i = 0; i <= val; i++) {
-      i = i < 10 ? "0" + i : i;
-      let option = `<option value="${i}">${i}</option>`;
-      return option;
-    }
-  };
+  const hours = [];
+  const minutes = [];
+  for (let i = 0; i < 13; i++) {
+    hours.push(i + 1);
+  }
   return (
     <>
       <Button
@@ -57,7 +55,11 @@ const ScheduleModal = () => {
               Select Time
             </Text>
             <HStack>
-              <Select placeholder="Hours">{options(12)}</Select>
+              <Select placeholder="Hours">
+                {hours.map((option) => (
+                  <option value={index}>{option}</option>
+                ))}
+              </Select>
               <Select placeholder="Minute">{options(59)}</Select>
               <Select placeholder="AM/PM">
                 <option value="am">AM</option>
