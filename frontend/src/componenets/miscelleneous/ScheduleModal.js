@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -21,6 +21,7 @@ import { CalendarIcon } from "@chakra-ui/icons";
 import { getCurrentTime } from "../../config/TimeLogics";
 
 const ScheduleModal = () => {
+  const [currentTime, setCurrentTime] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const hours = [];
@@ -32,30 +33,35 @@ const ScheduleModal = () => {
     minutes.push(j);
   }
 
-  const h2tag = document.querySelector("time");
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(getCurrentTime());
+    }, 1000);
 
-  setInterval(() => {
-    const getTime = () => {
-      let date = new Date();
-      let h = date.getHours();
-      let m = date.hetMinutes();
-      let s = date.getSeconds();
-      let ampm = "AM";
-
-      if (h >= 12) {
-        h = h - 12;
-        ampm = "PM";
-      }
-
-      h = h == 0 ? (h = 12) : h;
-
-      h = h < 10 ? "0" + h : h;
-      m = m < 10 ? "0" + m : m;
-      s = s < 10 ? "0" + s : s;
-      console.log(`${h}:${m}:${s} ${ampm}`);
-      h2tag.innerText = `${h}:${m}:${s} ${ampm}`;
+    return () => {
+      clearInterval(intervalId);
     };
-  }, 1000);
+  });
+
+  const getTime = () => {
+    let date = new Date();
+    let h = date.getHours();
+    let m = date.hetMinutes();
+    let s = date.getSeconds();
+    let ampm = "AM";
+
+    if (h >= 12) {
+      h = h - 12;
+      ampm = "PM";
+    }
+
+    h = h == 0 ? (h = 12) : h;
+
+    h = h < 10 ? "0" + h : h;
+    m = m < 10 ? "0" + m : m;
+    s = s < 10 ? "0" + s : s;
+    return `${h}:${m}:${s} ${ampm}`;
+  };
 
   return (
     <>
@@ -81,7 +87,9 @@ const ScheduleModal = () => {
           <ModalHeader>Schedule Your Message</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <h3 id="time"></h3>
+            <Text fontSize={"3xl"} fontFamily={"Work Sans"}>
+              {currentTime}
+            </Text>
             <HStack marginTop={5}>
               <Select placeholder="Hours">
                 {hours.map((option) => (
