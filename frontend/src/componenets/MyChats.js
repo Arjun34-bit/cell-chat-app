@@ -96,11 +96,10 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
 
   let longPressTimeout;
 
-  const handleTouchStart = (e) => {
-    e.preventDefault();
+  const handleTouchStart = () => {
     longPressTimeout = setTimeout(() => {
       onOpen();
-    }, 500);
+    }, 700);
   };
 
   const handleTouchEnd = () => {
@@ -271,12 +270,6 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
             >
               <MenuButton></MenuButton>
               <MenuList color={"black"} fontSize={"20px"}>
-                <MenuItem
-                  icon={<AtSignIcon />}
-                  onClick={() => setShowProfile(true)}
-                >
-                  Profile
-                </MenuItem>
                 <MenuDivider color="white" />
                 <MenuItem
                   icon={<DeleteIcon />}
