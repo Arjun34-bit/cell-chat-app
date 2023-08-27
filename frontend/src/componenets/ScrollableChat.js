@@ -68,7 +68,7 @@ const ScrollableChat = ({ messages }) => {
               }}
             >
               {m.content}
-              <sub style={{ paddingLeft: "3px", fontSize: "xs" }}>
+              <sub style={{ paddingLeft: "4px", fontSize: "xs" }}>
                 {timeCode(m.createdAt)}
               </sub>
             </span>

@@ -18,17 +18,18 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { CalendarIcon } from "@chakra-ui/icons";
+import { getCurrentTime } from "../../config/TimeLogics";
 
 const ScheduleModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const hours = [];
   const minutes = [];
-  for (let i = 0; i < 13; i++) {
+  for (let i = 0; i < 12; i++) {
     hours.push(i + 1);
   }
   for (let j = 0; j < 60; j++) {
-    minutes.push(j + 1);
+    minutes.push(j);
   }
   return (
     <>
@@ -55,9 +56,9 @@ const ScheduleModal = () => {
           <ModalCloseButton />
           <ModalBody>
             <Text display={"flex"} justifyContent={"center"}>
-              Select Time
+              {getCurrentTime}
             </Text>
-            <HStack>
+            <HStack marginTop={5}>
               <Select placeholder="Hours">
                 {hours.map((option) => (
                   <option value={option}>{option}</option>
