@@ -31,6 +31,30 @@ const ScheduleModal = () => {
   for (let j = 0; j < 60; j++) {
     minutes.push(j);
   }
+
+  const getTime = () => {
+    setInterval(() => {
+      let date = new Date();
+      let h = date.getHours();
+      let m = date.hetMinutes();
+      let s = date.getSeconds();
+      let ampm = "AM";
+
+      if (h >= 12) {
+        h = h - 12;
+        ampm = "PM";
+      }
+
+      h = h == 0 ? (h = 12) : h;
+
+      h = h < 10 ? "0" + h : h;
+      m = m < 10 ? "0" + m : m;
+      s = s < 10 ? "0" + s : s;
+      console.log(`${h}:${m}:${s} ${ampm}`);
+      return `${h}:${m}:${s} ${ampm}`;
+    }, 1000);
+  };
+
   return (
     <>
       <Button
@@ -56,9 +80,7 @@ const ScheduleModal = () => {
           <ModalCloseButton />
           <ModalBody>
             <Text display={"flex"} justifyContent={"center"}>
-              {setInterval(() => {
-                getCurrentTime;
-              }, 1000)}
+              {getTime}
             </Text>
             <HStack marginTop={5}>
               <Select placeholder="Hours">
