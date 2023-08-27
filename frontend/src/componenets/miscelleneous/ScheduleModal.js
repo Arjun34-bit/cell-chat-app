@@ -55,9 +55,7 @@ const ScheduleModal = () => {
           <ModalHeader>Schedule Your Message</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text display={"flex"} justifyContent={"center"}>
-              {getCurrentTime}
-            </Text>
+            <Text display={"flex"} justifyContent={"center"}></Text>
             <HStack marginTop={5}>
               <Select placeholder="Hours">
                 {hours.map((option) => (
