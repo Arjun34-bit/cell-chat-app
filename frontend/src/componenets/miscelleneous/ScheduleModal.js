@@ -16,6 +16,7 @@ import {
   FormLabel,
   Input,
   IconButton,
+  useToast,
 } from "@chakra-ui/react";
 import { CalendarIcon } from "@chakra-ui/icons";
 import { getCurrentTime } from "../../config/TimeLogics";
@@ -25,6 +26,8 @@ const ScheduleModal = ({ selectedChat }) => {
   const [currentTime, setCurrentTime] = useState("");
   const { user } = ChatState();
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const toast = useToast();
 
   const hours = [];
   const minutes = [];
