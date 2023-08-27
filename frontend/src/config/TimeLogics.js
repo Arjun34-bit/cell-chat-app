@@ -1,9 +1,9 @@
 export const getCurrentTime = () => {
   let date = new Date();
-  h = date.getHours();
-  m = date.hetMinutes();
-  s = date.getSeconds();
-  ampm = "AM";
+  let h = date.getHours();
+  let m = date.hetMinutes();
+  let s = date.getSeconds();
+  let ampm = "AM";
 
   if (h >= 12) {
     h = h - 12;
