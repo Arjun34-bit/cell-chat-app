@@ -57,9 +57,7 @@ const ScheduleModal = () => {
           <ModalBody>
             <Text display={"flex"} justifyContent={"center"}>
               {setInterval(() => {
-                {
-                  getCurrentTime;
-                }
+                getCurrentTime;
               }, 1000)}
             </Text>
             <HStack marginTop={5}>
