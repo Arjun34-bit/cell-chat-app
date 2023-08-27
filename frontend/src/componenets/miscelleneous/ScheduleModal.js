@@ -27,6 +27,9 @@ const ScheduleModal = () => {
   for (let i = 0; i < 13; i++) {
     hours.push(i + 1);
   }
+  for (let j = 0; j < 60; i++) {
+    minutes.push(j + 1);
+  }
   return (
     <>
       <Button
@@ -57,10 +60,14 @@ const ScheduleModal = () => {
             <HStack>
               <Select placeholder="Hours">
                 {hours.map((option) => (
-                  <option value={index}>{option}</option>
+                  <option value={option}>{option}</option>
                 ))}
               </Select>
-              <Select placeholder="Minute">{options(59)}</Select>
+              <Select placeholder="Minute">
+                {minutes.map((option) => (
+                  <option value={option}>{option}</option>
+                ))}
+              </Select>
               <Select placeholder="AM/PM">
                 <option value="am">AM</option>
                 <option value="pm">PM</option>
