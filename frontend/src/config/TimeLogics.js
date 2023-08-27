@@ -1,22 +1,20 @@
 export const getCurrentTime = () => {
-  setInterval(() => {
-    let date = new Date();
-    let h = date.getHours();
-    let m = date.hetMinutes();
-    let s = date.getSeconds();
-    let ampm = "AM";
+  let date = new Date();
+  let h = date.getHours();
+  let m = date.hetMinutes();
+  let s = date.getSeconds();
+  let ampm = "AM";
 
-    if (h >= 12) {
-      h = h - 12;
-      ampm = "PM";
-    }
+  if (h >= 12) {
+    h = h - 12;
+    ampm = "PM";
+  }
 
-    h = h == 0 ? (h = 12) : h;
+  h = h == 0 ? (h = 12) : h;
 
-    h = h < 10 ? "0" + h : h;
-    m = m < 10 ? "0" + m : m;
-    s = s < 10 ? "0" + s : s;
-    console.log(`${h}:${m}:${s} ${ampm}`);
-    return `${h}:${m}:${s} ${ampm}`;
-  }, 1000);
+  h = h < 10 ? "0" + h : h;
+  m = m < 10 ? "0" + m : m;
+  s = s < 10 ? "0" + s : s;
+  console.log(`${h}:${m}:${s} ${ampm}`);
+  return `${h}:${m}:${s} ${ampm}`;
 };
