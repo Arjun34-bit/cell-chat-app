@@ -32,8 +32,10 @@ const ScheduleModal = () => {
     minutes.push(j);
   }
 
-  const getTime = () => {
-    setInterval(() => {
+  const h2tag = document.querySelector("time");
+
+  setInterval(() => {
+    const getTime = () => {
       let date = new Date();
       let h = date.getHours();
       let m = date.hetMinutes();
@@ -51,9 +53,9 @@ const ScheduleModal = () => {
       m = m < 10 ? "0" + m : m;
       s = s < 10 ? "0" + s : s;
       console.log(`${h}:${m}:${s} ${ampm}`);
-      return `${h}:${m}:${s} ${ampm}`;
-    }, 1000);
-  };
+      h2tag.innerText = `${h}:${m}:${s} ${ampm}`;
+    };
+  }, 1000);
 
   return (
     <>
@@ -79,9 +81,7 @@ const ScheduleModal = () => {
           <ModalHeader>Schedule Your Message</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text display={"flex"} justifyContent={"center"}>
-              {getTime}
-            </Text>
+            <h3 id="time"></h3>
             <HStack marginTop={5}>
               <Select placeholder="Hours">
                 {hours.map((option) => (
