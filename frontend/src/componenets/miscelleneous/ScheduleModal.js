@@ -48,25 +48,25 @@ const ScheduleModal = ({ selectedChat }) => {
     };
   });
 
-  const getTime = () => {
-    let date = new Date();
-    let h = date.getHours();
-    let m = date.hetMinutes();
-    let s = date.getSeconds();
-    let ampm = "AM";
+  // const getTime = () => {
+  //   let date = new Date();
+  //   let h = date.getHours();
+  //   let m = date.hetMinutes();
+  //   let s = date.getSeconds();
+  //   let ampm = "AM";
 
-    if (h >= 12) {
-      h = h - 12;
-      ampm = "PM";
-    }
+  //   if (h >= 12) {
+  //     h = h - 12;
+  //     ampm = "PM";
+  //   }
 
-    h = h == 0 ? (h = 12) : h;
+  //   h = h == 0 ? (h = 12) : h;
 
-    h = h < 10 ? "0" + h : h;
-    m = m < 10 ? "0" + m : m;
-    s = s < 10 ? "0" + s : s;
-    return `${h}:${m}:${s} ${ampm}`;
-  };
+  //   h = h < 10 ? "0" + h : h;
+  //   m = m < 10 ? "0" + m : m;
+  //   s = s < 10 ? "0" + s : s;
+  //   return `${h}:${m}:${s} ${ampm}`;
+  // };
 
   const handleSchedule = () => {
     if (selectedChat.groupAdmin._id !== user._id) {
