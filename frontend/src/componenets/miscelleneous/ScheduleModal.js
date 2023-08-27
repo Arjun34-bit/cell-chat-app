@@ -19,9 +19,11 @@ import {
 } from "@chakra-ui/react";
 import { CalendarIcon } from "@chakra-ui/icons";
 import { getCurrentTime } from "../../config/TimeLogics";
+import { ChatState } from "../../Context/ChatProvider";
 
-const ScheduleModal = () => {
+const ScheduleModal = ({ selectedChat }) => {
   const [currentTime, setCurrentTime] = useState("");
+  const { user } = ChatState();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const hours = [];
@@ -61,6 +63,19 @@ const ScheduleModal = () => {
     m = m < 10 ? "0" + m : m;
     s = s < 10 ? "0" + s : s;
     return `${h}:${m}:${s} ${ampm}`;
+  };
+
+  const handleSchedule = () => {
+    if (selectedChat.groupAdmin._id !== user._id) {
+      toast({
+        title: "This Feature is Available to only Admin",
+        status: "error",
+        duration: 2000,
+        position: "bottom",
+        isClosable: true,
+      });
+      return;
+    }
   };
 
   return (
@@ -122,6 +137,7 @@ const ScheduleModal = () => {
               display={"flex"}
               justifyContent={"center"}
               w={"100%"}
+              onClick={() => handleSchedule}
             >
               Schedule
             </Button>
