@@ -27,7 +27,7 @@ const ScheduleModal = () => {
   for (let i = 0; i < 13; i++) {
     hours.push(i + 1);
   }
-  for (let j = 0; j < 60; i++) {
+  for (let j = 0; j < 60; j++) {
     minutes.push(j + 1);
   }
   return (
