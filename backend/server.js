@@ -7,6 +7,8 @@ const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const verificationRoutes = require("./routes/verificationRoutes");
+const notificationRoutes = require("./routes/notificationRoutes");
+
 const { notFound, errorHandler } = require("./Middleware/errorMiddleware.js");
 const path = require("path");
 
