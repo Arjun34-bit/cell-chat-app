@@ -216,7 +216,7 @@ const SideDrawer = ({}) => {
                 </MenuItem>
               ))}
               {notification.map((n) =>
-                notifySenderNames.push(getSender(user, notify.chat.users))
+                notifySenderNames.push(getSender(user, n.chat.users))
               )}
               {notification
                 ? sendEmailNotify(user.email, notifySenderNames)
