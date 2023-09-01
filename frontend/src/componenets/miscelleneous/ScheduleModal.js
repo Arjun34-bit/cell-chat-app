@@ -102,7 +102,16 @@ const ScheduleModal = ({ selectedChat }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Schedule Your Message</ModalHeader>
+          <ModalHeader>Schedule and Send</ModalHeader>
+          <span
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              fontSize: "sm",
+            }}
+          >
+            Keep Your Wi-Fi or Data connection on
+          </span>
           <ModalCloseButton />
           <ModalBody>
             <Text fontSize={"3xl"} fontFamily={"Work Sans"}>
