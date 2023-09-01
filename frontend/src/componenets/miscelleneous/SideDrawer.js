@@ -133,18 +133,18 @@ const SideDrawer = ({}) => {
     }
   };
 
-  const sendEmailNotify = async (mail, names) => {
-    try {
-      const config = {
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-      };
+  // const sendEmailNotify = async (mail, names) => {
+  //   try {
+  //     const config = {
+  //       headers: {
+  //         "Content-type": "application/json",
+  //         Authorization: `Bearer ${user.token}`,
+  //       },
+  //     };
 
-      await axios.put("api/notification/", { mail, names }, config);
-    } catch (error) {}
-  };
+  //     await axios.put("api/notification/", { mail, names }, config);
+  //   } catch (error) {}
+  // };
 
   return (
     <>
@@ -215,12 +215,12 @@ const SideDrawer = ({}) => {
                     : `New Message From ${getSender(user, notify.chat.users)}`}
                 </MenuItem>
               ))}
-              {notification.map((n) =>
+              {/* {notification.map((n) =>
                 notifySenderNames.push(getSender(user, n.chat.users))
               )}
               {notification
                 ? sendEmailNotify(user.email, notifySenderNames)
-                : ""}
+                : ""} */}
             </MenuList>
           </Menu>
           <Menu>
