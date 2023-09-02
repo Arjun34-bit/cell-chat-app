@@ -8,6 +8,7 @@ const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const verificationRoutes = require("./routes/verificationRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
+const scheduleRoutes = require("./routes/scheduleRoutes");
 
 const { notFound, errorHandler } = require("./Middleware/errorMiddleware.js");
 const path = require("path");
@@ -22,6 +23,7 @@ app.use("/api/chats", chatRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/otp", verificationRoutes);
 app.use("/api/notification", notificationRoutes);
+app.use("/api/schedule", scheduleRoutes);
 
 //--------------Deployment---------
 

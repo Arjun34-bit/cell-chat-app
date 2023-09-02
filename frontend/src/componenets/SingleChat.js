@@ -290,7 +290,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                   </UpdateGroupChatModal>
                 }
 
-                <ScheduleModal selectedChat={selectedChat} />
+                <ScheduleModal
+                  selectedChat={selectedChat}
+                  messages={messages}
+                  setMessages={setMessages}
+                  setNewMessage={setNewMessage}
+                />
               </>
             )}
             <div>
