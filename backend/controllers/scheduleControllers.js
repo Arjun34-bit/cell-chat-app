@@ -4,10 +4,10 @@ const Message = require("../Models/messageModel.js");
 const Chat = require("../Models/chatModels.js");
 const cron = require("node-cron");
 
+const response = {};
+
 const scheduler = asyncHandler(async (req, res) => {
   const { content, chatId, timeCode } = req.body;
-
-  const response = "";
 
   if (!content || !chatId || !timeCode) {
     console.log("Invalid data passed to request");
