@@ -86,6 +86,12 @@ const ScheduleModal = ({
         };
 
         setNewMessage("");
+        const { data } = await axios.post(
+          "/api/schedule",
+          { content: mess, chatId: selectedChat._id, timeCode: finalTime },
+          config
+        );
+        setMessages([...messages, data]);
         toast({
           title: `Message Scheduled on ${finalTime}`,
           status: "success",
@@ -93,12 +99,6 @@ const ScheduleModal = ({
           position: "bottom",
           isClosable: true,
         });
-        const { data } = await axios.post(
-          "/api/schedule",
-          { content: mess, chatId: selectedChat._id, timeCode: finalTime },
-          config
-        );
-        setMessages([...messages, data]);
         return;
       } catch (error) {}
       toast({
