@@ -94,7 +94,7 @@ const ScheduleModal = ({
           isClosable: true,
         });
         const { data } = await axios.post(
-          "/api/schedule",
+          "/api/schedule/",
           { content: mess, chatId: selectedChat._id, timeCode: finalTime },
           config
         );
