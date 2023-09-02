@@ -7,6 +7,8 @@ const cron = require("node-cron");
 const scheduler = asyncHandler(async (req, res) => {
   const { content, chatId, timeCode } = req.body;
 
+  const response = "";
+
   if (!content || !chatId || !timeCode) {
     console.log("Invalid data passed to request");
     return res.sendStatus(400);
@@ -36,14 +38,13 @@ const scheduler = asyncHandler(async (req, res) => {
       await Chat.findByIdAndUpdate(chatId, {
         latestMessage: message,
       });
-
+      response = res.json(message);
       console.log("Message sent at scheduled time:", message);
     } catch (error) {
       console.error("Error sending message:", error.message);
     }
   });
-
-  res.json({ message: "Task scheduled successfully" });
+  await res.response;
 });
 
 module.exports = { scheduler };
