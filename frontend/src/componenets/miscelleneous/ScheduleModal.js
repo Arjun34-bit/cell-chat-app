@@ -87,7 +87,7 @@ const ScheduleModal = ({
 
         setNewMessage("");
         toast({
-          title: `Message Scheduled on ${finalTime}`,
+          title: `Message Scheduled for ${finalTime}`,
           status: "success",
           duration: 2000,
           position: "bottom",
