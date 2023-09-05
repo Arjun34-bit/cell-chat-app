@@ -18,32 +18,36 @@ const scheduler = asyncHandler(async (req, res) => {
   const cronPattern = `${minute} ${hour} * * *`;
 
   // Schedule the task
-  cron.schedule(cronPattern, async () => {
-    var newMessage = {
-      sender: req.user._id,
-      content: content,
-      chat: chatId,
-    };
+  cron.schedule(
+    cronPattern,
+    async () => {
+      var newMessage = {
+        sender: req.user._id,
+        content: content,
+        chat: chatId,
+      };
 
-    try {
-      var message = await Message.create(newMessage);
+      try {
+        var message = await Message.create(newMessage);
 
-      message = await message.populate("sender", "name pic");
-      message = await message.populate("chat");
-      message = await User.populate(message, {
-        path: "chat.users",
-        select: "name pic phone",
-      });
+        message = await message.populate("sender", "name pic");
+        message = await message.populate("chat");
+        message = await User.populate(message, {
+          path: "chat.users",
+          select: "name pic phone",
+        });
 
-      await Chat.findByIdAndUpdate(chatId, {
-        latestMessage: message,
-      });
-      response = res.json(message);
-      console.log("Message sent at scheduled time:", message);
-    } catch (error) {
-      console.error("Error sending message:", error.message);
-    }
-  });
+        await Chat.findByIdAndUpdate(chatId, {
+          latestMessage: message,
+        });
+        response = res.json(message);
+        console.log("Message sent at scheduled time:", message);
+      } catch (error) {
+        console.error("Error sending message:", error.message);
+      }
+    },
+    { timezone: "Asia/Calcutta" }
+  );
   res.response;
 });
 
