@@ -38,14 +38,13 @@ const scheduler = asyncHandler(async (req, res) => {
       await Chat.findByIdAndUpdate(chatId, {
         latestMessage: message,
       });
-      response = message;
-      res.json(message);
+      response = res.json(message);
       console.log("Message sent at scheduled time:", message);
     } catch (error) {
       console.error("Error sending message:", error.message);
     }
   });
-  res.json(response);
+  res.response;
 });
 
 module.exports = { scheduler };
