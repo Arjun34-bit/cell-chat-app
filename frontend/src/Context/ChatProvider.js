@@ -22,6 +22,17 @@ const ChatProvider = ({ children }) => {
     }
   }, [navigate]);
 
+  useEffect(() => {
+    const handleBack = () => {
+      setSelectedChat("");
+    };
+    window.addEventListener("popstate", handleBack);
+
+    return () => {
+      window.removeEventListener("popstate", handleBack);
+    };
+  }, []);
+
   return (
     <ChatContext.Provider
       value={{
