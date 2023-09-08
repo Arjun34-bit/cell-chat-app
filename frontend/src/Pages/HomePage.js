@@ -27,6 +27,11 @@ const HomePage = () => {
     }
   });
 
+  window.addEventListener("beforeunload", function (e) {
+    e.preventDefault();
+    window.history.forward();
+  });
+
   return (
     <Container maxW="xl" marginStart={"7"} marginTop={"1"}>
       <Box

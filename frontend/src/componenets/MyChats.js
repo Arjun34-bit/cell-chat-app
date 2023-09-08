@@ -46,6 +46,7 @@ import GroupChatModal from "./miscelleneous/GroupChatModal";
 import DeleteButton from "./miscelleneous/DeleteButton";
 import ProfileModal from "./miscelleneous/ProfileModal";
 import SmallProfile from "./miscelleneous/SmallProfile";
+import { BackHandler } from "react-native";
 
 const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   // window.location.reload(false);
@@ -107,6 +108,20 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   };
 
   //Long Press Functions ---ends
+  const handleBack = () => {
+    setSelectedChat("");
+    return true;
+  };
+
+  useEffect(() => {
+    window.addEventListener("popstate", handleBack);
+    BackHandler.addEventListener("hardwareBackPress", handleBack);
+
+    return () => {
+      window.removeEventListener("popstate", handleBack);
+      BackHandler.removeEventListener("hardwareBackPress", handleBack);
+    };
+  }, []);
 
   //Chat Removal for small screen code ---starts
 
@@ -270,13 +285,14 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
             >
               <MenuButton></MenuButton>
               <MenuList color={"black"} fontSize={"20px"}>
-                <MenuDivider color="white" />
                 <MenuItem
                   icon={<DeleteIcon />}
                   onClick={() => setOpenStatus(true)}
                 >
                   Remove Chat
                 </MenuItem>
+                <MenuDivider color="white" />
+                <MenuItem>Report</MenuItem>
               </MenuList>
               <AlertDialog
                 isOpen={openStatus}

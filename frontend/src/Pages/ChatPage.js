@@ -10,6 +10,10 @@ const ChatPage = () => {
   const [fetchAgain, setFetchAgain] = useState(false);
 
   // window.location.reload(false);
+  window.history.pushState(null, null, document.URL);
+  window.addEventListener("popstate", function () {
+    window.history.pushState(null, null, document.URL);
+  });
   return (
     <div style={{ width: "100%" }}>
       {user && (
