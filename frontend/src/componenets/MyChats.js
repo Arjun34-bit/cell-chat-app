@@ -114,9 +114,11 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
 
   useEffect(() => {
     window.addEventListener("popstate", handleBack);
+    window.addEventListener("backbutton", handleBack);
 
     return () => {
       window.removeEventListener("popstate", handleBack);
+      window.removeEventListener("backbutton", handleBack);
     };
   }, []);
 

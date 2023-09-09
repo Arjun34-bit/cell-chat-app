@@ -21,17 +21,17 @@ import {
 } from "@chakra-ui/react";
 import { Avatar } from "@chakra-ui/avatar";
 import { BellIcon, ChatIcon, ChevronDownIcon } from "@chakra-ui/icons";
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { useState } from "react";
 import { ChatState } from "../../Context/ChatProvider";
-import ProfileModal from "./ProfileModal";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import ChatLoading from "../ChatLoading";
-import UserListItem from "../UserAvatar/UserListItem";
 import { getSender, getreceiverEmail } from "../../config/ChatLogics";
 import NotificationBadge from "react-notification-badge";
 import { Effect } from "react-notification-badge";
+const ProfileModal = lazy(() => import("./ProfileModal"));
+const UserListItem = lazy(() => import("../UserAvatar/UserListItem"));
 
 const SideDrawer = ({}) => {
   const [search, setSearch] = useState();
@@ -233,9 +233,12 @@ const SideDrawer = ({}) => {
               />
             </MenuButton>
             <MenuList>
-              <ProfileModal user={user}>
-                <MenuItem>My Profile</MenuItem>
-              </ProfileModal>
+              <Suspense>
+                <ProfileModal user={user}>
+                  <MenuItem>My Profile</MenuItem>
+                </ProfileModal>
+              </Suspense>
+
               <MenuDivider />
               <MenuItem onClick={logoutHandler}>LogOut</MenuItem>
             </MenuList>
@@ -263,11 +266,13 @@ const SideDrawer = ({}) => {
               <ChatLoading />
             ) : (
               searchResult?.map((u) => (
-                <UserListItem
-                  key={u._id}
-                  user={u}
-                  handleFunction={() => accessChat(u._id)}
-                />
+                <Suspense>
+                  <UserListItem
+                    key={u._id}
+                    user={u}
+                    handleFunction={() => accessChat(u._id)}
+                  />
+                </Suspense>
               ))
             )}
             {loadingChat && <Spinner ml="auto" d="flex" />}

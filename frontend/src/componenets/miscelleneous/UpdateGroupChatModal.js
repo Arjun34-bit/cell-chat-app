@@ -16,11 +16,11 @@ import {
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import { ChatState } from "../../Context/ChatProvider";
 import UserBadgeItem from "../UserAvatar/UserBadgeItem";
-import UserListItem from "../UserAvatar/UserListItem";
 import axios from "axios";
+const UserListItem = lazy(() => import("../UserAvatar/UserListItem"));
 
 const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -247,11 +247,13 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
             <Text>Group Members :</Text>
             <Box w="100%" display="flex" flexWrap="wrap" pb={3}>
               {selectedChat.users.map((u) => (
-                <UserBadgeItem
-                  key={user._id}
-                  user={u}
-                  handleFunction={() => handleRemove(u)}
-                />
+                <Suspense>
+                  <UserBadgeItem
+                    key={user._id}
+                    user={u}
+                    handleFunction={() => handleRemove(u)}
+                  />
+                </Suspense>
               ))}
               {/* {loading ? <div>Removing User...</div> : ""} */}
             </Box>

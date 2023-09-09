@@ -14,11 +14,11 @@ import {
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import { ChatState } from "../../Context/ChatProvider";
 import axios from "axios";
-import UserListItem from "../UserAvatar/UserListItem";
 import UserBadgeItem from "../UserAvatar/UserBadgeItem";
+const UserListItem = lazy(() => import("../UserAvatar/UserListItem"));
 
 const GroupChatModal = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -167,11 +167,13 @@ const GroupChatModal = ({ children }) => {
             </FormControl>
             <Box w="100%" display="flex" flexWrap="wrap">
               {selectedUsers.map((u) => (
-                <UserBadgeItem
-                  key={user._id}
-                  user={u}
-                  handleFunction={() => handleDelete(u)}
-                />
+                <Suspense>
+                  <UserBadgeItem
+                    key={user._id}
+                    user={u}
+                    handleFunction={() => handleDelete(u)}
+                  />
+                </Suspense>
               ))}
             </Box>
             {loading ? (
