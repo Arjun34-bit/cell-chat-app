@@ -30,6 +30,7 @@ import ChatLoading from "../ChatLoading";
 import { getSender, getreceiverEmail } from "../../config/ChatLogics";
 import NotificationBadge from "react-notification-badge";
 import { Effect } from "react-notification-badge";
+import QRScanner from "./QRScanner";
 const ProfileModal = lazy(() => import("./ProfileModal"));
 const UserListItem = lazy(() => import("../UserAvatar/UserListItem"));
 
@@ -38,6 +39,7 @@ const SideDrawer = ({}) => {
   const [searchResult, setSearchResult] = useState();
   const [loading, setLoading] = useState();
   const [loadingChat, setLoadingChat] = useState();
+  const [scannedData, setScannedData] = useState("");
   const navigate = useNavigate();
 
   const toast = useToast();
@@ -238,7 +240,10 @@ const SideDrawer = ({}) => {
                   <MenuItem>My Profile</MenuItem>
                 </ProfileModal>
               </Suspense>
-
+              <MenuDivider />
+              <QRScanner>
+                <MenuItem>Scan QR</MenuItem>
+              </QRScanner>
               <MenuDivider />
               <MenuItem onClick={logoutHandler}>LogOut</MenuItem>
             </MenuList>

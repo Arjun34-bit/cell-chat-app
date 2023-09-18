@@ -45,3 +45,36 @@
     left: 0%;
   }
 }
+
+.login-box {
+  margin-top: 40px;
+  background-color: black;
+  width: 30%;
+  display: flex;
+  margin-left: 35%;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-box:hover {
+  background-color: cornsilk;
+  color: black;
+}
+
+.animate {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

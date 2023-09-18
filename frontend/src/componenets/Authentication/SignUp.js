@@ -255,14 +255,14 @@ function SignUp({ history }) {
 
       <Button
         fontWeight={"bold"}
-        color={"turquoise"}
+        color={"blue.900"}
         colorScheme="blue"
         width={"100%"}
         style={{ marginTop: 15 }}
         onClick={submitHandler}
         isLoading={loading}
       >
-        Sign Up
+        Register Your Cell-Chat account
       </Button>
     </VStack>
   );
