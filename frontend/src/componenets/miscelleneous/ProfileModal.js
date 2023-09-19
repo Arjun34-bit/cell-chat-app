@@ -51,6 +51,7 @@ const ProfileModal = ({ user, children }) => {
               flexDir={"column"}
               alignItems={"center"}
               justifyContent={"space-between"}
+              h={300}
             >
               {!imgorQr ? (
                 <Image
