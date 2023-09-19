@@ -16,7 +16,7 @@ import { ChatState } from "../../Context/ChatProvider";
 import axios from "axios";
 
 const QRScanner = () => {
-  const [facing, setFacing] = useState(false);
+  const [facing, setFacing] = useState("environment");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { setSelectedChat, chat, setChat, user } = ChatState();
 
@@ -68,6 +68,12 @@ const QRScanner = () => {
     console.error(err);
   };
 
+  const toggleCameraFacing = () => {
+    setFacing((prevFacingMode) =>
+      prevFacingMode === "environment" ? "user" : "environment"
+    );
+  };
+
   return (
     <>
       <Button onClick={onOpen} w={"100%"} variant={"ghost"}>
@@ -86,15 +92,15 @@ const QRScanner = () => {
               onScan={handleScan}
               style={{ width: "100%", padding: "3px" }}
               willReadFrequently={true}
-              facingMode={!facing ? "environment" : "user"}
+              facingMode={facing}
             />
             <Button
               display={"flex"}
               justifyContent={"center"}
               alignItems={"center"}
-              onClick={() => setFacing(!facing)}
+              onClick={toggleCameraFacing}
             >
-              {!facing ? "View Rear Camera" : "View Front Camera"}
+              Change Camera View
             </Button>
           </ModalBody>
 
