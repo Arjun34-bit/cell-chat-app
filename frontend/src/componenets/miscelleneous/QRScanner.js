@@ -86,7 +86,7 @@ const QRScanner = () => {
               onScan={handleScan}
               style={{ width: "100%", padding: "3px" }}
               willReadFrequently={true}
-              facingMode={facing ? "environment" : "user"}
+              facingMode={!facing ? "environment" : "user"}
             />
             <Button
               display={"flex"}
