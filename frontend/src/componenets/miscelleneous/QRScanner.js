@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import QrReader from "react-qr-scanner";
+import QrReader from "react-qr-reader";
 import {
   Modal,
   ModalOverlay,
@@ -87,12 +87,11 @@ const QRScanner = () => {
           <ModalCloseButton />
           <ModalBody>
             <QrReader
+              facingMode={facing}
               delay={300}
               onError={handleError}
               onScan={handleScan}
               style={{ width: "100%", padding: "3px" }}
-              willReadFrequently={true}
-              facingMode={facing}
             />
             <Button
               display={"flex"}
