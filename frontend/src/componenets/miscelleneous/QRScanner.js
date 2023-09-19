@@ -91,6 +91,7 @@ const QRScanner = () => {
             <Button
               display={"flex"}
               justifyContent={"center"}
+              alignItems={"center"}
               onClick={() => setFacing(!facing)}
             >
               {!facing ? "View Rear Camera" : "View Front Camera"}
