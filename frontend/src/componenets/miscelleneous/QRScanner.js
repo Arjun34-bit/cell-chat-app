@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import QrReader from "react-qr-scanner";
+import QrReader from "react-qr-reader";
 import {
   Modal,
   ModalOverlay,
@@ -16,7 +16,7 @@ import { ChatState } from "../../Context/ChatProvider";
 import axios from "axios";
 
 const QRScanner = () => {
-  const [facing, setFacing] = useState("rear");
+  const [facing, setFacing] = useState("environment");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { setSelectedChat, chat, setChat, user } = ChatState();
 
@@ -70,7 +70,7 @@ const QRScanner = () => {
 
   const toggleCameraFacing = () => {
     setFacing((prevFacingMode) =>
-      prevFacingMode === "rear" ? "front" : "rear"
+      prevFacingMode === "environment" ? "user" : "environment"
     );
   };
 
@@ -86,13 +86,6 @@ const QRScanner = () => {
           <ModalHeader>Scan QRCode to Chat</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <QrReader
-              facingMode={"rear"}
-              delay={300}
-              onError={handleError}
-              onScan={handleScan}
-              style={{ width: "100%", padding: "3px" }}
-            />
             <Button
               display={"flex"}
               justifyContent={"center"}
@@ -101,6 +94,13 @@ const QRScanner = () => {
             >
               Change Camera View
             </Button>
+            <QrReader
+              facingMode={facing}
+              delay={300}
+              onError={handleError}
+              onScan={handleScan}
+              style={{ width: "100%", padding: "3px" }}
+            />
           </ModalBody>
 
           <ModalFooter>
