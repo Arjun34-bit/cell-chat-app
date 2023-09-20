@@ -92,6 +92,7 @@ const QRScanner = () => {
               justifyContent={"center"}
               alignItems={"center"}
               onClick={toggleCameraFacing}
+              isLoading={loading}
             >
               Change Camera View
             </Button>
