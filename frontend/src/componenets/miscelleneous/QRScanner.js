@@ -26,8 +26,8 @@ const QRScanner = () => {
   const handleScan = async (data) => {
     if (data) {
       setLoading(true);
-      const jsonValue = JSON.parse(data.text);
-      accessChat(jsonValue._id);
+      const jsonValue = JSON.parse(data);
+      accessChat(jsonValue);
       onClose();
     }
   };

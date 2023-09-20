@@ -24,7 +24,7 @@ const ProfileModal = ({ user, children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [imgorQr, setImgorQr] = useState(false);
   const { loggedUser } = ChatState();
-  const jsonString = JSON.stringify(user);
+  const jsonString = JSON.stringify(user._id);
 
   return (
     <>
