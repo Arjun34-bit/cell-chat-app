@@ -87,7 +87,7 @@ const QRScanner = () => {
           <ModalCloseButton />
           <ModalBody>
             <QrReader
-              facingMode={facing}
+              facingMode={"rear"}
               delay={300}
               onError={handleError}
               onScan={handleScan}
