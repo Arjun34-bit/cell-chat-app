@@ -97,7 +97,7 @@ const QRScanner = () => {
             </Button>
             <QrReader
               facingMode={facing}
-              delay={false}
+              delay={300}
               onError={handleError}
               onResult={handleScan}
               style={{ width: "100%", padding: "3px" }}
