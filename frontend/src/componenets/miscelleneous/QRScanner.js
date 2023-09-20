@@ -18,12 +18,14 @@ import axios from "axios";
 const QRScanner = () => {
   const [facing, setFacing] = useState("environment");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [loading, setLoading] = useState(false);
   const { setSelectedChat, chat, setChat, user } = ChatState();
 
   const toast = useToast();
 
   const handleScan = async (data) => {
     if (data) {
+      setLoading(true);
       const jsonValue = JSON.parse(data.text);
       accessChat(jsonValue._id);
       onClose();
@@ -48,8 +50,7 @@ const QRScanner = () => {
       if (!chat.find((c) => c._id === data._id)) setChat([data, ...chat]);
 
       setSelectedChat(data);
-      // setLoadingChat(false);
-      // onClose();
+      setLoading(false);
     } catch (error) {
       toast({
         title: "Failure in Fetching the Chat",
@@ -96,9 +97,9 @@ const QRScanner = () => {
             </Button>
             <QrReader
               facingMode={facing}
-              delay={300}
+              delay={false}
               onError={handleError}
-              onScan={handleScan}
+              onResult={handleScan}
               style={{ width: "100%", padding: "3px" }}
             />
           </ModalBody>
