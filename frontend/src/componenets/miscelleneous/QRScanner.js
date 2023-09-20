@@ -26,7 +26,9 @@ const QRScanner = () => {
   const handleScan = async (data) => {
     if (data) {
       setLoading(true);
+      console.log(data);
       const jsonValue = JSON.parse(data);
+      console.log(jsonValue);
       accessChat(jsonValue);
       onClose();
     }
@@ -100,7 +102,7 @@ const QRScanner = () => {
               facingMode={facing}
               delay={300}
               onError={handleError}
-              onResult={handleScan}
+              onScan={handleScan}
               style={{ width: "100%", padding: "3px" }}
             />
           </ModalBody>
