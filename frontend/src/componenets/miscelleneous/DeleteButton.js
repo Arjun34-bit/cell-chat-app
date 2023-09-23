@@ -30,6 +30,7 @@ const DeleteButton = ({
   openS,
   OnClose,
   setFetchAgain,
+  col,
 }) => {
   const { user, setSelectedChat, selectedChat } = ChatState();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -82,7 +83,7 @@ const DeleteButton = ({
       <MenuButton
         as={IconButton}
         aria-label="Options"
-        icon={<DeleteIcon />}
+        icon={<DeleteIcon color={col ? "white" : "black"} />}
         variant="ghost"
         borderRadius={"25px"}
         fontFamily={"Work Sans"}

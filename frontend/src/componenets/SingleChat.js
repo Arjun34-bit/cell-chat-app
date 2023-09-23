@@ -5,6 +5,7 @@ import {
   Box,
   FormControl,
   IconButton,
+  Image,
   Input,
   Spinner,
   Text,
@@ -271,8 +272,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                   name={user.name}
                   src={getImage(user, selectedChat.users)}
                 />
-
-                {getSender(user, selectedChat.users)}
+                <Text
+                  fontSize={{ base: "12px", md: "27px" }}
+                  fontStyle={"bold"}
+                >
+                  {getSender(user, selectedChat.users)}
+                </Text>
                 <ProfileModal user={getSenderFull(user, selectedChat.users)}>
                   <InfoOutlineIcon size="1xl" marginLeft={"auto"} />
                 </ProfileModal>
@@ -392,6 +397,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           justifyContent={"center"}
           h="100%"
         >
+          <img src="public/maskable_icon.png" width={100} height={100} />
           <Text fontSize={"3xl"} pb={3} fontFamily={"Work Sans"}>
             Click On a User to Start Chat
           </Text>

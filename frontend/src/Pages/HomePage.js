@@ -33,7 +33,7 @@ const HomePage = () => {
   });
 
   return (
-    <Container maxW="xl" marginStart={"7"} marginTop={"1"}>
+    <Container maxW="xl" marginTop={"1"}>
       <Box
         display="flex"
         flex-basis="200px"

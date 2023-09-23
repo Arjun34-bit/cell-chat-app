@@ -61,7 +61,7 @@ const LoginviaOTP = ({ children }) => {
       setErr(false);
       setLoading(false);
       toast({
-        title: "OTP sent to you Email",
+        title: "OTP sent to your Email",
         status: "success",
         duration: 3000,
         position: "bottom",
