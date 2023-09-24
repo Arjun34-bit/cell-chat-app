@@ -37,6 +37,7 @@ import Lottie from "lottie-react";
 import animationData from "../animation/typing.json";
 import BsEmojiSmileFill, { BsEmojiLaughingFill } from "react-icons/bs";
 import Picker, { Emoji } from "emoji-picker-react";
+import cellchat from "../Images/cellchat.jpg";
 
 import io from "socket.io-client";
 import DeleteButton from "./miscelleneous/DeleteButton";
@@ -397,10 +398,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           justifyContent={"center"}
           h="100%"
         >
-          <img src="public/maskable_icon.png" width={100} height={100} />
-          <Text fontSize={"3xl"} pb={3} fontFamily={"Work Sans"}>
+          <img
+            src={cellchat}
+            alt="cell-chat"
+            style={{ width: "250px", height: "250px" }}
+          />
+          {/* <Text fontSize={"3xl"} pb={3} fontFamily={"Work Sans"}>
             Click On a User to Start Chat
-          </Text>
+          </Text> */}
         </Box>
       )}
     </>

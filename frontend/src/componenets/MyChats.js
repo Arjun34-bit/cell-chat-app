@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ChatState } from "../Context/ChatProvider";
 import { Avatar, Box, Button, Stack, Text, useToast } from "@chakra-ui/react";
 import axios from "axios";
@@ -24,6 +24,8 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
 
   const [showOperations, setShowOperations] = useState(false);
   const { user, selectedChat, setSelectedChat, chat, setChat } = ChatState();
+
+  const touchStartTimestamp = useRef(null);
 
   const toast = useToast();
 
@@ -58,14 +60,36 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
 
   let longPressTimeout;
 
+  // const handleTouchStart = () => {
+  //   longPressTimeout = setTimeout(() => {
+  //     setShowOperations(true);
+  //   }, 1000);
+  // };
+
+  // const handleTouchEnd = () => {
+  //   setShowOperations(false);
+  //   clearTimeout(longPressTimeout);
+  // };
+
   const handleTouchStart = () => {
-    longPressTimeout = setTimeout(() => {
-      setShowOperations(true);
+    touchStartTimestamp.current = Date.now();
+
+    // Start a timeout after 1 second
+    setTimeout(() => {
+      const touchDuration = Date.now() - touchStartTimestamp.current;
+      if (touchDuration >= 1000) {
+        setShowOperations(true);
+      }
     }, 1000);
   };
 
   const handleTouchEnd = () => {
-    clearTimeout(longPressTimeout);
+    // Clear the timeout if the touch ends
+    clearTimeout();
+    touchStartTimestamp.current = null;
+
+    // Always set showOperations to false when the touch ends
+    setShowOperations(false);
   };
 
   //Long Press Functions ---ends
@@ -77,10 +101,14 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   useEffect(() => {
     window.addEventListener("popstate", handleBack);
     window.addEventListener("backbutton", handleBack);
+    // myElementRef.current.addEventListener("touchstart", handleTouchStart);
+    // myElementRef.current.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       window.removeEventListener("popstate", handleBack);
       window.removeEventListener("backbutton", handleBack);
+      // myElementRef.current.removeEventListener("touchstart", handleTouchStart);
+      // myElementRef.current.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
 

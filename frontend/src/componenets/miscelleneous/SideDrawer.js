@@ -234,7 +234,7 @@ const SideDrawer = ({}) => {
                 src={user.pic}
               />
             </MenuButton>
-            <MenuList textAlign={"center"}>
+            <MenuList fontWeight={"bold"}>
               <Suspense>
                 <ProfileModal user={user}>
                   <MenuItem textAlign={"center"}>My Profile</MenuItem>

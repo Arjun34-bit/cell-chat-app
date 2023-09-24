@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import QrReader from "react-qr-reader";
+import { QrReader } from "react-qr-reader";
 import {
   Modal,
   ModalOverlay,
@@ -26,9 +26,7 @@ const QRScanner = () => {
   const handleScan = async (data) => {
     if (data) {
       setLoading(true);
-      console.log(data);
       const jsonValue = JSON.parse(data);
-      console.log(jsonValue);
       accessChat(jsonValue);
       onClose();
     }
@@ -79,8 +77,17 @@ const QRScanner = () => {
 
   return (
     <>
-      <Button onClick={onOpen} w={"100%"} variant={"ghost"}>
-        Click To Scan & Chat
+      <Button
+        onClick={onOpen}
+        w={"100%"}
+        variant={"ghost"}
+        display={"flex"}
+        textAlign="left"
+        justifyContent="flex-start"
+        paddingLeft={3}
+      >
+        Scan & Chat
+        <sup style={{ color: "red", fontSize: "9px", padding: "2px" }}>NEW</sup>
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -92,7 +99,6 @@ const QRScanner = () => {
             <Button
               display={"flex"}
               justifyContent={"center"}
-              alignItems={"center"}
               onClick={toggleCameraFacing}
               isLoading={loading}
             >
