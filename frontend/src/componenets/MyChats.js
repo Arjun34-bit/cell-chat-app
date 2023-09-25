@@ -118,7 +118,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
       flexDir={"column"}
       alignItems={"center"}
       p={3}
-      bg="black"
+      bg="#17B169"
       w={{ base: "100%", md: "31%" }}
       borderRadius={"lg"}
       borderWidth={"1px"}

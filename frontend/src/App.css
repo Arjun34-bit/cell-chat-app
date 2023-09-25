@@ -3,9 +3,37 @@
 .App {
   min-height: 100vh;
   display: flex;
-  background-image: url("./background-login\ and\ sign\ up\ page.avif");
+  /* background-color: #17b169; */
+  /* background-image: url("./background-login\ and\ sign\ up\ page.avif"); */
   background-size: cover;
   background-position: center;
+  animation: animatedBackground 15s linear infinite;
+}
+
+@keyframes animatedBackground {
+  0% {
+    background-color: #17b169;
+  }
+  25% {
+    background-color: cadetblue;
+  }
+  50% {
+    background-color: black;
+  }
+  75% {
+    background-color: palegreen;
+  }
+  100% {
+    background-color: yellow;
+  }
+}
+
+.cell-box:hover {
+  box-shadow: 4px 4px 10px 3px rgba(0, 0, 255, 0.5);
+}
+
+.component-box {
+  box-shadow: 4px 4px 10px 3px black;
 }
 
 ::-webkit-scrollbar {

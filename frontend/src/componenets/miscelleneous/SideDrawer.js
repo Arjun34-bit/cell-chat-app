@@ -153,7 +153,7 @@ const SideDrawer = ({}) => {
       <Box
         display={"flex"}
         justifyContent={"space-between"}
-        bg={"white"}
+        bg={"#7CB9E8"}
         padding="5px 10px 5px 10px"
         alignItems={"center"}
         width={"100%"}

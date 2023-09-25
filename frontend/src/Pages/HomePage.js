@@ -35,11 +35,12 @@ const HomePage = () => {
   return (
     <Container maxW="xl" marginTop={"1"}>
       <Box
+        className="cell-box"
         display="flex"
         flex-basis="200px"
         justifyContent={"center"}
         p={3}
-        bg={"black"}
+        bg={"white"}
         w="100%"
         m="40px 0 15px 0"
         borderRadius="lg"
@@ -48,7 +49,7 @@ const HomePage = () => {
         <Text
           fontSize={"3xl"}
           fontFamily={"work sans"}
-          color={"DodgerBlue"}
+          color={"black"}
           textAlign={"center"}
         >
           <ChatIcon marginRight={"1"}></ChatIcon>
@@ -59,9 +60,11 @@ const HomePage = () => {
       <Box
         w="100%"
         p={4}
+        bg={"white"}
         borderRadius={"lg"}
-        color={"white"}
+        color={"black"}
         borderWidth={"1px"}
+        className="component-box"
       >
         <Tabs variant="unstyled">
           <TabList
@@ -73,14 +76,14 @@ const HomePage = () => {
             <Tab
               _selected={{ color: "white", bg: "blue.500" }}
               width={"50%"}
-              color={"white"}
+              color={"black"}
             >
               Login
             </Tab>
             <Tab
               _selected={{ color: "white", bg: " blue.400" }}
               width={"50%"}
-              color={"white"}
+              color={"black"}
               onClick={onToggle}
             >
               Sign Up
