@@ -6,6 +6,7 @@ const ChatContext = createContext();
 
 const ChatProvider = ({ children }) => {
   const [user, setUser] = useState();
+  const [buttonColor, setButtonColor] = useState("green");
   const [selectedChat, setSelectedChat] = useState();
   const [chat, setChat] = useState([]);
   const [notification, setNotification] = useState([]);
@@ -33,6 +34,8 @@ const ChatProvider = ({ children }) => {
         setChat,
         notification,
         setNotification,
+        buttonColor,
+        setButtonColor,
       }}
     >
       {children}

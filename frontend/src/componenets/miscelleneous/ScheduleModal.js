@@ -31,7 +31,7 @@ const ScheduleModal = ({
 }) => {
   const [finalTime, setFinalTime] = useState("");
   const [mess, setMess] = useState("");
-  const { user } = ChatState();
+  const { user, buttonColor } = ChatState();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const toast = useToast();
@@ -170,7 +170,7 @@ const ScheduleModal = ({
             <Button
               mt={5}
               variant="solid"
-              colorScheme="blue"
+              colorScheme={buttonColor}
               color="black"
               display={"flex"}
               justifyContent={"center"}

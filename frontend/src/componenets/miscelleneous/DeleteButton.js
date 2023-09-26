@@ -83,7 +83,7 @@ const DeleteButton = ({
       <MenuButton
         as={IconButton}
         aria-label="Options"
-        icon={<DeleteIcon color={col ? "white" : "black"} />}
+        icon={<DeleteIcon color={"black"} />}
         variant="ghost"
         borderRadius={"25px"}
         fontFamily={"Work Sans"}

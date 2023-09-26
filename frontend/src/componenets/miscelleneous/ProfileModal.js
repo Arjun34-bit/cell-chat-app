@@ -23,7 +23,7 @@ import ScrollableFeed from "react-scrollable-feed";
 const ProfileModal = ({ user, children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [imgorQr, setImgorQr] = useState(false);
-  const { loggedUser } = ChatState();
+  const { loggedUser, buttonColor } = ChatState();
   const jsonString = JSON.stringify(user._id);
 
   return (
@@ -67,7 +67,7 @@ const ProfileModal = ({ user, children }) => {
               )}
 
               <Button
-                colorScheme="blue"
+                colorScheme={buttonColor}
                 mt={2}
                 mb={2}
                 onClick={() => setImgorQr(!imgorQr)}
@@ -93,7 +93,7 @@ const ProfileModal = ({ user, children }) => {
           </ScrollableFeed>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme={"gray"} mr={3} onClick={onClose}>
               Close
             </Button>
           </ModalFooter>

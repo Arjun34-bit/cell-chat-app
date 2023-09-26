@@ -23,7 +23,8 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   const [socketConnected, setSocketConnected] = useState(false);
 
   const [showOperations, setShowOperations] = useState(false);
-  const { user, selectedChat, setSelectedChat, chat, setChat } = ChatState();
+  const { user, selectedChat, setSelectedChat, chat, setChat, buttonColor } =
+    ChatState();
 
   const touchStartTimestamp = useRef(null);
 
@@ -138,9 +139,8 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
           alignItems={"center"}
           className="show-operations"
         >
-          <CloseIcon onClick={() => setShowOperations(false)} />
+          <CloseIcon color={"black"} onClick={() => setShowOperations(false)} />
           <DeleteButton
-            col={true}
             loggedUser={user}
             senderName={getSender(user, menuOperation.users)}
             id={menuOperation}
@@ -151,7 +151,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
       ) : (
         <Box
           display="flex"
-          color={"white"}
+          color={"black"}
           pb={3}
           px={3}
           fontSize={{ base: "15px", md: "30px" }}

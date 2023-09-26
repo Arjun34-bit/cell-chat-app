@@ -14,6 +14,7 @@ import {
 import SignUp from "../componenets/Authentication/SignUp";
 import Login from "../componenets/Authentication/Login";
 import { useEffect } from "react";
+import cellchat from "../Images/cellchat.jpg";
 import { ChatIcon } from "@chakra-ui/icons";
 
 const HomePage = () => {
@@ -39,13 +40,18 @@ const HomePage = () => {
         flex-basis="200px"
         justifyContent={"center"}
         p={3}
-        bg={"#4CAF50"}
+        bg={"white"}
         w="100%"
         m="40px 0 15px 0"
         borderRadius="lg"
         borderWidth="1px"
       >
-        <Text
+        <img
+          src={cellchat}
+          alt="cell-chat"
+          style={{ width: "100px", height: "100px" }}
+        />
+        {/* <Text
           fontSize={"3xl"}
           fontFamily={"work sans"}
           color={"black"}
@@ -54,7 +60,7 @@ const HomePage = () => {
           <ChatIcon marginRight={"1"}></ChatIcon>
           <span>Cell-Chat</span>
           <sub>(ßeta)</sub>
-        </Text>
+        </Text> */}
       </Box>
       <Box
         w="100%"
