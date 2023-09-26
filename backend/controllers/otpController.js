@@ -50,7 +50,77 @@ const sendOtp = asyncHandler(async (req, res) => {
     from: "cellchat86@gmail.com",
     to: email,
     subject: "OTP For Login",
-    html: `<h1>Welcome! to Cell-Chat</h1> <h4>Your four digit One Time Password Number : <b>${otp}</b></h4>`,
+    html: `<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>OTP Email</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #4CAF50; /* Green */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Content Styles */
+        .content {
+            padding: 20px;
+        }
+
+        /* OTP Styles */
+        .otp {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4CAF50; /* Green */
+        }
+
+        /* Footer Styles */
+        .footer {
+            text-align: center;
+            padding-top: 20px;
+            color: #555555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Your OTP Verification</h1>
+        </div>
+        <div class="content">
+            <p>Hello,</p>
+            <p>Your OTP code for Login is:</p>
+            <p class="otp">${otpval}</p>
+            <p>Please use this OTP to complete your login process.</p>
+            <p>If you didn't request this OTP, please disregard this email.</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2023 Cell-Chat</p>
+        </div>
+    </div>
+</body>
+</html>
+`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
