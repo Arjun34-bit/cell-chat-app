@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import SignUp from "../componenets/Authentication/SignUp";
 import Login from "../componenets/Authentication/Login";
-import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { ChatIcon } from "@chakra-ui/icons";
 
@@ -40,7 +39,7 @@ const HomePage = () => {
         flex-basis="200px"
         justifyContent={"center"}
         p={3}
-        bg={"white"}
+        bg={"#4CAF50"}
         w="100%"
         m="40px 0 15px 0"
         borderRadius="lg"
@@ -60,7 +59,7 @@ const HomePage = () => {
       <Box
         w="100%"
         p={4}
-        bg={"white"}
+        bg={"#4CAF50"}
         borderRadius={"lg"}
         color={"black"}
         borderWidth={"1px"}

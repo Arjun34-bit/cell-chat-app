@@ -254,9 +254,8 @@ function SignUp({ history }) {
       </FormControl>
 
       <Button
+        className="action-buttons"
         fontWeight={"bold"}
-        color={"blue.900"}
-        colorScheme="blue"
         width={"100%"}
         style={{ marginTop: 15 }}
         onClick={submitHandler}

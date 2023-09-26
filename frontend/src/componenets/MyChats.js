@@ -95,6 +95,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   //Long Press Functions ---ends
   const handleBack = () => {
     setSelectedChat("");
+    setShowOperations(false);
     return true;
   };
 
@@ -118,7 +119,7 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
       flexDir={"column"}
       alignItems={"center"}
       p={3}
-      bg="#17B169"
+      bg="#4CAF50"
       w={{ base: "100%", md: "31%" }}
       borderRadius={"lg"}
       borderWidth={"1px"}
@@ -212,12 +213,11 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                     setMenuOperation(cha);
                   }}
                   onTouchEnd={handleTouchEnd}
-                  onTouchCancel={handleTouchEnd}
                   onClick={() => {
                     setSelectedChat(cha);
                   }}
                   cursor={"pointer"}
-                  bg={selectedChat === cha ? "#38B2AC" : "#E8E8E8"}
+                  bg={selectedChat === cha ? "#7CB9E8" : "#E8E8E8"}
                   color={selectedChat === cha ? "white" : "black"}
                   px={3}
                   py={2}

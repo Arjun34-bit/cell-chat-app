@@ -115,8 +115,9 @@ function Login({ history }) {
 
       <Button
         fontWeight={"bold"}
-        color={"turquoise"}
-        colorScheme="blue"
+        color={"black"}
+        variant="solid"
+        colorScheme="gray"
         width={"100%"}
         style={{ marginTop: 15 }}
         onClick={submitHandler}
@@ -127,7 +128,7 @@ function Login({ history }) {
 
       <Button
         variant="solid"
-        colorScheme="red"
+        colorScheme="blackAlpha"
         width="100%"
         onClick={() => {
           setPhone(1234567890);

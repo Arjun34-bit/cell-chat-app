@@ -3,11 +3,11 @@
 .App {
   min-height: 100vh;
   display: flex;
-  /* background-color: #17b169; */
+  background-color: #ffffff;
   /* background-image: url("./background-login\ and\ sign\ up\ page.avif"); */
   background-size: cover;
   background-position: center;
-  animation: animatedBackground 15s linear infinite;
+  /* animation: animatedBackground 15s linear infinite; */
 }
 
 @keyframes animatedBackground {
@@ -26,6 +26,10 @@
   100% {
     background-color: yellow;
   }
+}
+
+.action-buttons {
+  color-scheme: #333333;
 }
 
 .cell-box:hover {
