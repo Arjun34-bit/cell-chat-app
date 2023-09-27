@@ -7,6 +7,8 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
+  Button,
+  useDisclosure,
 } from "@chakra-ui/react";
 import {
   EmailShareButton,
