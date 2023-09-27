@@ -44,13 +44,15 @@ const HomePage = () => {
         w="100%"
         m="40px 0 15px 0"
         borderRadius="lg"
-        borderWidth="1px"
+        borderWidth="0.5px"
       >
+        <hr style={{ color: "green" }} />
         <img
           src={cellchat}
           alt="cell-chat"
           style={{ width: "100px", height: "100px" }}
         />
+        <hr style={{ color: "green" }} />
         {/* <Text
           fontSize={"3xl"}
           fontFamily={"work sans"}

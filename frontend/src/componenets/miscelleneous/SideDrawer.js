@@ -234,6 +234,7 @@ const SideDrawer = ({}) => {
                 src={user.pic}
               />
             </MenuButton>
+
             <MenuList fontWeight={"bold"}>
               <Suspense>
                 <ProfileModal user={user}>
@@ -241,9 +242,15 @@ const SideDrawer = ({}) => {
                 </ProfileModal>
               </Suspense>
               <MenuDivider />
+
               <QRScanner>
                 <MenuItem>Scan QR</MenuItem>
               </QRScanner>
+              <MenuDivider />
+              <Settings>
+                <MenuItem>Actions</MenuItem>
+              </Settings>
+
               <MenuDivider />
               <MenuItem onClick={logoutHandler} textAlign={"center"}>
                 LogOut
