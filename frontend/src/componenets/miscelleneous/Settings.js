@@ -43,6 +43,9 @@ const Settings = () => {
             <LinkedinShareButton url={shareUrl} title={title}>
               LinkedIn
             </LinkedinShareButton>
+            <WhatsappShareButton url={shareUrl}>
+              Share on WhatsApp
+            </WhatsappShareButton>
           </ModalBody>
 
           <ModalFooter>
