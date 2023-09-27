@@ -31,6 +31,7 @@ import { getSender, getreceiverEmail } from "../../config/ChatLogics";
 import NotificationBadge from "react-notification-badge";
 import { Effect } from "react-notification-badge";
 import QRScanner from "./QRScanner";
+import Settings from "./Settings";
 const ProfileModal = lazy(() => import("./ProfileModal"));
 const UserListItem = lazy(() => import("../UserAvatar/UserListItem"));
 
