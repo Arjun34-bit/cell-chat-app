@@ -42,6 +42,7 @@ import cellchat from "../Images/cellchat.jpg";
 import io from "socket.io-client";
 import DeleteButton from "./miscelleneous/DeleteButton";
 import ScheduleModal from "./miscelleneous/ScheduleModal";
+import { encryptMessage } from "../config/Encryption";
 const ENDPOINT = "http://localhost:5000";
 var socket, selectedChatCompare;
 
@@ -158,9 +159,10 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
 
         setNewMessage("");
+        const encMsg = encryptMessage(newMessage);
         const { data } = await axios.post(
           "/api/messages/",
-          { content: newMessage, chatId: selectedChat._id },
+          { content: encMsg, chatId: selectedChat._id },
           config
         );
 

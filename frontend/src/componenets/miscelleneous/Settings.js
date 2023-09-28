@@ -19,6 +19,10 @@ import {
   TelegramShareButton,
   TwitterShareButton,
   WhatsappShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+  EmailIcon,
 } from "react-share";
 
 const Settings = () => {
@@ -37,16 +41,16 @@ const Settings = () => {
           <ModalBody>
             <h2>Share this page:</h2>
             <FacebookShareButton url={shareUrl} quote={title}>
-              Facebook
+              <FacebookIcon size={32} round />
             </FacebookShareButton>
             <TwitterShareButton url={shareUrl} title={title}>
-              Twitter
+              <TwitterIcon size={32} round />
             </TwitterShareButton>
             <LinkedinShareButton url={shareUrl} title={title}>
-              LinkedIn
+              <LinkedinIcon size={32} round />
             </LinkedinShareButton>
-            <WhatsappShareButton url={shareUrl}>
-              Share on WhatsApp
+            <WhatsappShareButton url={shareUrl} title={title}>
+              <WhatsappIcon size={32} round />
             </WhatsappShareButton>
           </ModalBody>
 

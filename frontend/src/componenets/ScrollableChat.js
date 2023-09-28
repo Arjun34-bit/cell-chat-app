@@ -9,6 +9,7 @@ import {
 } from "../config/ChatLogics";
 import { Avatar } from "@chakra-ui/avatar";
 import { Tooltip } from "@chakra-ui/react";
+import { decryptMessage } from "../config/Encryption";
 
 const ScrollableChat = ({ messages }) => {
   const [time, setTime] = useState("");
@@ -67,7 +68,7 @@ const ScrollableChat = ({ messages }) => {
                 marginTop: isSameUser(messages, m, i, user._id) ? 3 : 10,
               }}
             >
-              {m?.content}
+              {decryptMessage(m.content)}
               <sub style={{ paddingLeft: "4px", fontSize: "xs" }}>
                 {timeCode(m?.createdAt)}
               </sub>
