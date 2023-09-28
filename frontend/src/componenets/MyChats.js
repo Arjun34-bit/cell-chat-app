@@ -14,6 +14,7 @@ import { getImage, getSender, getSenderFull } from "../config/ChatLogics";
 import GroupChatModal from "./miscelleneous/GroupChatModal";
 import DeleteButton from "./miscelleneous/DeleteButton";
 import ProfileModal from "./miscelleneous/ProfileModal";
+import { decryptMessage } from "../config/Encryption";
 
 const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
   // window.location.reload(false);
@@ -248,8 +249,10 @@ const MyChats = ({ setFetchAgain, fetchAgain, online }) => {
                     <Text fontSize="xs" paddingLeft={"8"}>
                       <b>{cha.latestMessage.sender.name} : </b>
                       {cha.latestMessage.content.length > 50
-                        ? cha.latestMessage.content.substring(0, 51) + "..."
-                        : cha.latestMessage.content}
+                        ? decryptMessage(
+                            cha.latestMessage.content.substring(0, 51) + "..."
+                          )
+                        : decryptMessage(cha.latestMessage.content)}
                     </Text>
                   )}
                   {!cha.isGroupChat ? (

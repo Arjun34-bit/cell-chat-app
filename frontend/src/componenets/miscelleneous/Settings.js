@@ -32,7 +32,9 @@ const Settings = () => {
   const title = "Join, Cell-Chat for new xP-rience";
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
+      <Button onClick={onOpen} variant="ghost">
+        Actions
+      </Button>
 
       <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
