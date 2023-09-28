@@ -23,6 +23,7 @@ import {
   TwitterIcon,
   WhatsappIcon,
   EmailIcon,
+  LinkedinIcon,
 } from "react-share";
 
 const Settings = () => {

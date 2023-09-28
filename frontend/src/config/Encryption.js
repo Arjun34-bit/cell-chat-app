@@ -1,3 +1,5 @@
+import CryptoJS from "crypto-js";
+
 export const encryptMessage = (encMsg) => {
   const secretKey = "julie2017mersal"; // Replace with your secret key
 
