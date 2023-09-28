@@ -8,7 +8,7 @@ import {
   isSameUser,
 } from "../config/ChatLogics";
 import { Avatar } from "@chakra-ui/avatar";
-import { Tooltip } from "@chakra-ui/react";
+import { Tooltip, Box } from "@chakra-ui/react";
 import { decryptMessage } from "../config/Encryption";
 
 const ScrollableChat = ({ messages }) => {
@@ -40,6 +40,20 @@ const ScrollableChat = ({ messages }) => {
 
   return (
     <ScrollableFeed>
+      <Box
+        bgColor={"blue.500"}
+        display={"flex"}
+        textAlign={"center"}
+        justifyContent={"center"}
+        ml={"250px"}
+        mt={1}
+        fontSize={15}
+        color={"white"}
+        width={"50%"}
+        borderRadius={"10px"}
+      >
+        Hi, Cell &rarr; jfsg?[Messages_Will_Be_Encrypted]32@12 &rarr; Hi, Cell
+      </Box>
       {messages &&
         messages.map((m, i) => (
           <div style={{ display: "flex" }} key={m?._id}>

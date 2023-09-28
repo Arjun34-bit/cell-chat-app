@@ -159,7 +159,6 @@ const SideDrawer = ({}) => {
         alignItems={"center"}
         width={"100%"}
         borderRadius={"5px"}
-        color={"white"}
       >
         <Tooltip
           label="Search Users to chat"
@@ -175,7 +174,7 @@ const SideDrawer = ({}) => {
             </Text>
           </Button>
         </Tooltip>
-        <Box display={"flex"}>
+        <Box display={"flex"} color={"white"}>
           <Box>
             <Tooltip label={user.name} textTransform={"uppercase"}>
               <ChatIcon marginRight={"1"}></ChatIcon>
@@ -208,6 +207,7 @@ const SideDrawer = ({}) => {
               {!notification.length && "No New Messages"}
               {notification.map((notify) => (
                 <MenuItem
+                  color={"black"}
                   key={notify._id}
                   onClick={() => {
                     setSelectedChat(notify.chat);
@@ -240,7 +240,9 @@ const SideDrawer = ({}) => {
             <MenuList fontWeight={"bold"}>
               <Suspense>
                 <ProfileModal user={user}>
-                  <MenuItem textAlign={"center"}>My Profile</MenuItem>
+                  <MenuItem color={"black"} textAlign={"center"}>
+                    My Profile
+                  </MenuItem>
                 </ProfileModal>
               </Suspense>
               <MenuDivider />
@@ -254,7 +256,11 @@ const SideDrawer = ({}) => {
               </Settings>
 
               <MenuDivider />
-              <MenuItem onClick={logoutHandler} textAlign={"center"}>
+              <MenuItem
+                color={"black"}
+                onClick={logoutHandler}
+                textAlign={"center"}
+              >
                 LogOut
               </MenuItem>
             </MenuList>
