@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import QrReader  from "react-qr-reader";
+import QrReader from "react-qr-reader";
 import {
   Modal,
   ModalOverlay,
@@ -24,11 +24,29 @@ const QRScanner = () => {
   const toast = useToast();
 
   const handleScan = async (data) => {
-    if (data) {
+    if (user._id === data) {
+      toast({
+        title: "Scanning Self",
+        status: "info",
+        duration: 3000,
+        position: "bottom",
+        isClosable: true,
+      });
+      return;
+    } else if (data) {
       setLoading(true);
       const jsonValue = JSON.parse(data);
       accessChat(jsonValue);
       onClose();
+    } else {
+      toast({
+        title: "Something went wrong",
+        status: "error",
+        duration: 3000,
+        position: "bottom",
+        isClosable: true,
+      });
+      return;
     }
   };
 

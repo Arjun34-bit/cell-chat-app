@@ -32,7 +32,15 @@ const Settings = () => {
   const title = "Join, Cell-Chat for new xP-rience";
   return (
     <>
-      <Button onClick={onOpen} variant="ghost">
+      <Button
+        onClick={onOpen}
+        w={"100%"}
+        variant={"ghost"}
+        display={"flex"}
+        textAlign="left"
+        justifyContent="flex-start"
+        paddingLeft={3}
+      >
         Actions
       </Button>
 

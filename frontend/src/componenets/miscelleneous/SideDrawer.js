@@ -54,6 +54,7 @@ const SideDrawer = ({}) => {
     setChat,
     notification,
     setNotification,
+    setLoggedIn,
   } = ChatState();
 
   const notifySenderNames = [""];
@@ -61,6 +62,7 @@ const SideDrawer = ({}) => {
   const logoutHandler = () => {
     localStorage.removeItem("userInfo");
     setSelectedChat("");
+    setLoggedIn(false);
     navigate("/");
   };
 

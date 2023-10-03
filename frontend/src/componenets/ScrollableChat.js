@@ -40,20 +40,19 @@ const ScrollableChat = ({ messages }) => {
 
   return (
     <ScrollableFeed>
-      <Box
-        bgColor={"blue.500"}
-        display={"flex"}
-        textAlign={"center"}
-        justifyContent={"center"}
-        ml={"250px"}
-        mt={1}
-        fontSize={15}
-        color={"white"}
-        width={"50%"}
-        borderRadius={"10px"}
-      >
-        Hi, Cell &rarr; jfsg?[Messages_Will_Be_Encrypted]32@12 &rarr; Hi, Cell
-      </Box>
+      {/* <Box display={"flex"} textAlign={"center"} justifyContent={"center"}>
+        <Box
+          bgColor={"blue.500"}
+          mt={1}
+          fontSize={{ base: 9, md: 15 }}
+          color={"white"}
+          width={{ base: "35%", md: "45%" }}
+          borderRadius={"10px"}
+        >
+          Hi, Cell &rarr; Encrypted_Text &rarr; Hi, Cell
+        </Box>
+      </Box> */}
+
       {messages &&
         messages.map((m, i) => (
           <div style={{ display: "flex" }} key={m?._id}>
@@ -82,7 +81,7 @@ const ScrollableChat = ({ messages }) => {
                 marginTop: isSameUser(messages, m, i, user._id) ? 3 : 10,
               }}
             >
-              {decryptMessage(m.content)}
+              {m.content}
               <sub style={{ paddingLeft: "4px", fontSize: "xs" }}>
                 {timeCode(m?.createdAt)}
               </sub>

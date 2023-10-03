@@ -159,10 +159,10 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
 
         setNewMessage("");
-        const encMsg = encryptMessage(newMessage);
+        // const encMsg = encryptMessage(newMessage);
         const { data } = await axios.post(
           "/api/messages/",
-          { content: encMsg, chatId: selectedChat._id },
+          { content: newMessage, chatId: selectedChat._id },
           config
         );
 

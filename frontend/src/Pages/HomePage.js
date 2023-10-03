@@ -16,14 +16,20 @@ import Login from "../componenets/Authentication/Login";
 import { useEffect } from "react";
 import cellchat from "../Images/cellchat.jpg";
 import { ChatIcon } from "@chakra-ui/icons";
+import { ChatState } from "../Context/ChatProvider";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const { isOpen, isClose, onToggle } = useDisclosure();
+  const { loggedIn, setLoggedIn } = ChatState();
+
+  const navigate = useNavigate();
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
     if (userInfo) {
-      // history.push("/chats");
+      setLoggedIn(true);
+      navigate("chats");
     }
   });
 

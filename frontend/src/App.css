@@ -123,3 +123,19 @@
     opacity: 1;
   }
 }
+
+.center-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.span-tag {
+  font-family: "Work Sans";
+  color: #17b169;
+  width: 100;
+  font-weight: bolder;
+}

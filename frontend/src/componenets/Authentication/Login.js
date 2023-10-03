@@ -61,7 +61,7 @@ function Login({ history }) {
       );
 
       toast({
-        title: "Login Successful",
+        title: "Login Successful, You Will Be Remembered",
         status: "success",
         duration: 4000,
         position: "bottom",
