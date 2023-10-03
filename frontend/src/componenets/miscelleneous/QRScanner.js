@@ -24,7 +24,7 @@ const QRScanner = () => {
   const toast = useToast();
 
   const handleScan = async (data) => {
-    if (user._id === data) {
+    if (user._id === data.toString()) {
       toast({
         title: "Scanning Self",
         status: "info",
