@@ -24,29 +24,23 @@ const QRScanner = () => {
   const toast = useToast();
 
   const handleScan = async (data) => {
-    if (user._id === data.toString()) {
-      toast({
-        title: "Scanning Self",
-        status: "info",
-        duration: 3000,
-        position: "bottom",
-        isClosable: true,
-      });
-      return;
-    } else if (data) {
+    if (data) {
       setLoading(true);
       const jsonValue = JSON.parse(data);
-      accessChat(jsonValue);
-      onClose();
-    } else {
-      toast({
-        title: "Something went wrong",
-        status: "error",
-        duration: 3000,
-        position: "bottom",
-        isClosable: true,
-      });
-      return;
+      if (user._id === jsonValue) {
+        toast({
+          title: "Scanning Self Account",
+          status: "info",
+          duration: 3000,
+          position: "bottom",
+          isClosable: true,
+        });
+        return;
+      }
+      if (user._id !== jsonValue) {
+        accessChat(jsonValue);
+        onClose();
+      }
     }
   };
 
