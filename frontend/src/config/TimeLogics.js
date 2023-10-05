@@ -17,3 +17,12 @@ export const getCurrentTime = () => {
   s = s < 10 ? "0" + s : s;
   return `${h}:${m} ${ampm}`;
 };
+
+const maxLength = 9;
+export const truncate = (name) => {
+  if (name.length > maxLength) {
+    return name.slice(0, maxLength - 1) + "...";
+  } else {
+    return name;
+  }
+};

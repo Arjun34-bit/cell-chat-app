@@ -38,6 +38,7 @@ import animationData from "../animation/typing.json";
 import BsEmojiSmileFill, { BsEmojiLaughingFill } from "react-icons/bs";
 import Picker, { Emoji } from "emoji-picker-react";
 import cellchat from "../Images/cellchat.jpg";
+import { truncate } from "../config/TimeLogics";
 
 import io from "socket.io-client";
 import DeleteButton from "./miscelleneous/DeleteButton";
@@ -276,10 +277,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                   src={getImage(user, selectedChat.users)}
                 />
                 <Text
-                  fontSize={{ base: "12px", md: "27px" }}
+                  fontSize={{ base: "20px", md: "27px" }}
                   fontStyle={"bold"}
                 >
-                  {getSender(user, selectedChat.users)}
+                  {truncate(getSender(user, selectedChat.users))}
+                  {/* {getSender(user, selectedChat.users)} */}
                 </Text>
                 <ProfileModal user={getSenderFull(user, selectedChat.users)}>
                   <InfoOutlineIcon size="1xl" marginLeft={"auto"} />
@@ -287,7 +289,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               </>
             ) : (
               <>
-                {selectedChat.chatName.toUpperCase()}
+                {truncate(selectedChat.chatName.toUpperCase())}
+                {/* {selectedChat.chatName.toUpperCase()} */}
                 {
                   <UpdateGroupChatModal
                     fetchAgain={fetchAgain}
