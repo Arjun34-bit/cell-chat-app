@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/248.6e407e6c.chunk.css","mappings":"AAAA,UACE,YAAa,CACb,qBAAsB,CACtB,iBAAkB,CAClB,oBACF","sources":["componenets/style.css"],"sourcesContent":[".messages {\r\n  display: flex;\r\n  flex-direction: column;\r\n  overflow-y: scroll;\r\n  scrollbar-width: none;\r\n}\r\n"],"names":[],"sourceRoot":""}
