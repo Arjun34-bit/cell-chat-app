@@ -9,6 +9,8 @@ const generateToken = require("../config/generateToken");
 let otp = "";
 let user = {};
 
+//Custom OTP Handler
+
 const sendOtp = asyncHandler(async (req, res) => {
   const { email } = req.body;
 
